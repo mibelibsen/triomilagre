@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trio Milagre — bossa nova til jeres aften</title>
+<meta name="description" content="Trio Milagre spiller brasiliansk bossa nova akustisk: sang, bas og klaver. Se kalenderen over koncerter og book trioen til reception, middag eller koncert.">
+<meta property="og:title" content="Trio Milagre — bossa nova">
+<meta property="og:description" content="Tre musikere, én bølge af brasiliansk ro. Se koncertkalenderen og book trioen.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@400&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   Designsystem — tokens overtaget direkte fra designoplægget
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201f1d;
+  --color-accent: #b68235;
+  --color-divider: color-mix(in srgb, #201f1d 16%, transparent);
+
+  --color-accent-100: #fff3e4;
+  --color-accent-300: #facb8d;
+  --color-accent-600: #a06f24;
+  --color-accent-700: #7d5411;
+  --color-accent-800: #5a3b0a;
+
+  --spice-coral: oklch(60% 0.19 40);
+  --spice-coral-100: color-mix(in oklch, var(--spice-coral) 16%, var(--color-bg));
+  --spice-coral-300: color-mix(in oklch, var(--spice-coral) 46%, var(--color-bg));
+  --spice-coral-700: color-mix(in oklch, var(--spice-coral) 78%, var(--color-text));
+  --spice-green: oklch(38% 0.14 320);
+  --spice-green-100: color-mix(in oklch, var(--spice-green) 16%, var(--color-bg));
+  --spice-green-300: color-mix(in oklch, var(--spice-green) 44%, var(--color-bg));
+  --spice-green-700: color-mix(in oklch, var(--spice-green) 78%, var(--color-text));
+  --spice-dark: oklch(15% 0.01 40);
+  --spice-yellow: oklch(76% 0.14 85);
+  --spice-yellow-100: color-mix(in oklch, var(--spice-yellow) 24%, var(--color-bg));
+  --spice-yellow-700: color-mix(in oklch, var(--spice-yellow) 68%, var(--color-text));
+  --spice-teal: oklch(48% 0.16 330);
+  --spice-teal-100: color-mix(in oklch, var(--spice-teal) 18%, var(--color-bg));
+  --spice-teal-700: color-mix(in oklch, var(--spice-teal) 76%, var(--color-text));
+  --spice-blue: oklch(30% 0.09 310);
+  --spice-blue-100: color-mix(in oklch, var(--spice-blue) 16%, var(--color-bg));
+  --spice-blue-700: color-mix(in oklch, var(--spice-blue) 76%, var(--color-text));
+  --spice-purple: oklch(40% 0.15 315);
+  --spice-purple-100: color-mix(in oklch, var(--spice-purple) 18%, var(--color-bg));
+  --spice-purple-700: color-mix(in oklch, var(--spice-purple) 76%, var(--color-text));
+
+  /* Tynd skillelinje — sektionsskift må kun antydes */
+  --color-hairline: color-mix(in srgb, var(--color-divider) 30%, transparent);
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --space-1: 4.6px; --space-2: 9.2px; --space-3: 13.8px;
+  --space-4: 18.4px; --space-6: 27.6px; --space-8: 36.8px;
+  --radius-sm: 2px; --radius-md: 4px; --radius-lg: 7px;
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+  --wrap: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--color-bg); color: var(--color-text);
+  font-family: var(--font-body); font-size: 17px; line-height: 28px;
+  text-wrap: pretty; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+a { color: var(--color-accent-700); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--color-accent-600); }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2); }
+.display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.012em; }
+.script { font-family: var(--font-script); }
+p { margin: 0 0 var(--space-3); }
+
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--spice-dark); color: #fff; padding: 10px 16px;
+  border-radius: var(--radius-md); text-decoration: none; transition: top .15s;
+}
+.skip-link:focus { top: 12px; color: #fff; }
+
+/* — knapper — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: 600; font-size: 14px; line-height: 1.2;
+  color: var(--color-text); background: transparent;
+  border: 1px solid transparent; padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md); transition: filter .18s ease, background-color .18s ease;
+}
+.btn:hover { filter: brightness(0.93); }
+.btn:disabled { opacity: .45; cursor: not-allowed; filter: none; }
+.btn-coral  { background: var(--spice-coral);  color: #fff; border-color: var(--spice-coral); }
+.btn-coral:hover { color: #fff; }
+.btn-yellow { background: var(--spice-yellow); color: var(--spice-dark); border-color: var(--spice-yellow); }
+.btn-yellow:hover { color: var(--spice-dark); }
+.btn-teal   { background: var(--spice-teal);   color: #fff; border-color: var(--spice-teal); }
+.btn-teal:hover { color: #fff; }
+.btn-purple { background: var(--spice-purple); color: #fff; border-color: var(--spice-purple); }
+.btn-purple:hover { color: #fff; }
+.btn-quiet  { border-color: var(--color-divider); color: var(--color-text); }
+.btn-quiet:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); filter: none; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+.btn-sm { font-size: 12.5px; padding: 5px 11px; }
+
+/* — formularfelter — */
+.field > label { display: block; font-size: 12px; margin-bottom: 5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+.input {
+  width: 100%; min-height: 40px; padding: 8px 11px; font: inherit; font-size: 14px;
+  font-family: var(--font-body); color: var(--color-text); caret-color: var(--color-accent);
+  background: color-mix(in srgb, #fff 55%, transparent);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 104px; resize: vertical; line-height: 24px; }
+select.input { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23201f1d' stroke-width='1.5'/></svg>"); background-repeat: no-repeat; background-position: right 11px center; background-size: 11px; padding-right: 32px; }
+.field-error { display: none; font-size: 12.5px; line-height: 18px; margin: 5px 0 0; color: var(--spice-coral-700); }
+.field.is-invalid .input { border-color: var(--spice-coral); }
+.field.is-invalid .field-error { display: block; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* — kort, tags, plader — */
+.card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-divider); }
+.card-kicker { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent); margin: 0; }
+.card-body { margin: 0; font-size: 13px; opacity: .8; flex: 1; }
+.card-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; color: color-mix(in srgb, var(--color-text) 50%, transparent); margin: 0; }
+.tag { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: .02em; padding: 3px 10px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.plate { filter: sepia(.22) saturate(.82) contrast(1.05); border: 6px solid var(--color-surface); outline: 1px solid var(--color-divider); }
+
+/* Billedpladser: viser en pæn markering indtil et rigtigt foto sættes ind */
+.slot { position: relative; width: 100%; display: block; background: var(--spice-coral-100); overflow: hidden; }
+.slot img { width: 100%; height: 100%; object-fit: cover; }
+.slot-label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 16px; font-family: var(--font-display); font-size: 12px;
+  letter-spacing: .06em; text-transform: uppercase; line-height: 18px;
+  color: color-mix(in srgb, var(--color-text) 52%, transparent);
+}
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) max(20px, calc((100% - var(--wrap)) / 2 + 20px));
+  border-bottom: 1px solid var(--color-divider);
+  position: sticky; top: 0; z-index: 30;
+  background: color-mix(in srgb, var(--color-bg) 90%, transparent);
+  backdrop-filter: blur(8px);
+}
+.nav-brand { margin-right: auto; display: flex; align-items: center; color: var(--color-text); }
+.nav-brand svg { height: 40px; width: auto; display: block; }
+@media (max-width: 520px) { .nav-brand svg { height: 32px; } }
+.footer-logo { display: block; color: var(--spice-coral-300); opacity: .85; }
+.footer-logo svg { height: 46px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: var(--space-4); }
+.nav-links a { color: inherit; text-decoration: none; font-size: 14px; white-space: nowrap; font-family: var(--font-heading); font-weight: 600; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-accent); }
+.nav-links a.btn[aria-current="page"] { color: #fff; }
+.nav-toggle { display: none; background: none; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 7px 10px; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: inherit; }
+@media (max-width: 860px) {
+  .nav-toggle { display: inline-flex; align-items: center; gap: 7px; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--color-bg); border-bottom: 1px solid var(--color-divider);
+    padding: var(--space-2) max(20px, calc((100% - var(--wrap)) / 2 + 20px)) var(--space-4);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: 13px 0; font-size: 16px; border-bottom: 1px solid var(--color-divider); }
+  .nav-links a.btn { margin-top: var(--space-3); justify-content: center; border-bottom: 1px solid var(--spice-coral); }
+}
+
+/* — sider & sektioner — */
+main { flex: 1; width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
+.page { display: none; }
+.page.is-active { display: block; }
+.eyebrow { display: block; font-family: var(--font-body); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 16px; }
+.rule-top { border-top: 0.5px solid var(--color-hairline); }
+.lead { max-width: 56ch; font-size: 15.5px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 80%, transparent); }
+
+.hero { padding: 84px 0 56px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 42px clamp(28px, 5vw, 72px); align-items: end; }
+.hero h1 { font-size: clamp(44px, 6.2vw, 86px); line-height: 1.06; margin: 0 0 0 -0.042em; }
+.hero h1 span { display: block; }
+.hero h1 .script { font-size: 1.25em; line-height: 1.05; color: var(--color-accent); margin-left: .04em; }
+.facts { margin: 28px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+.fact { border-radius: var(--radius-md); padding: 22px 20px; }
+.fact-num { font-family: var(--font-heading); font-size: clamp(30px, 3vw, 42px); line-height: 1.1; font-feature-settings: 'tnum' 1; margin: 0; }
+.fact-lbl { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; line-height: 18px; margin: 10px 0 0; opacity: .92; }
+.two-col { padding: 84px 0 70px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px clamp(28px, 6vw, 84px); align-items: start; }
+.h2-display { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 3.2vw, 40px); line-height: 1.18; margin: 0; }
+.h1-display { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 5vw, 68px); line-height: 1.08; margin: 0 0 0 -0.042em; }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.prose { font-size: 15.5px; line-height: 28px; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); text-align: justify; hyphens: auto; }
+.prose + .prose { margin-top: 20px; }
+.quote-block {
+  margin: 0 0 84px; border-radius: var(--radius-md); color: #f3f2f2; padding: clamp(32px, 5vw, 64px);
+  background: linear-gradient(120deg, var(--spice-dark) 0%, color-mix(in oklch, var(--spice-purple) 55%, var(--spice-dark)) 100%);
+  border: 1px solid color-mix(in oklch, var(--spice-coral) 30%, var(--spice-dark));
+}
+.quote-block blockquote { font-family: var(--font-heading); font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.28; max-width: 34ch; margin: 0; text-indent: -.34em; }
+.quote-block figcaption { font-size: 15px; line-height: 26px; margin: 32px 0 0; color: var(--spice-coral-300); }
+
+/* — instagram — */
+.ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+.ig-item { text-decoration: none; color: inherit; display: block; }
+.ig-item .plate { transition: transform .2s ease; }
+.ig-item:hover .plate { transform: translateY(-3px); }
+.ig-caption { font-size: 14px; line-height: 22px; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ig-date { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-feature-settings: 'tnum' 1; margin: 6px 0 0; color: var(--color-accent-700); }
+.note { font-size: 13px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 62%, transparent); }
+
+/* — koncertliste — */
+.gig-row { display: grid; grid-template-columns: 11ch minmax(0, 1.4fr) minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; padding: 20px 0; border-bottom: 0.5px solid var(--color-hairline); }
+.gig-date { font-family: var(--font-heading); font-weight: 600; font-size: 22px; font-feature-settings: 'tnum' 1; color: var(--color-accent-800); }
+.gig-venue { font-size: 17px; }
+.gig-where { font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent); }
+.gig-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.gig-row.is-past { opacity: .5; }
+@media (max-width: 700px) {
+  .gig-row { grid-template-columns: 1fr auto; gap: 4px 16px; }
+  .gig-date { grid-column: 1 / -1; font-size: 19px; }
+  .gig-actions { grid-column: 1 / -1; justify-content: flex-start; margin-top: 8px; }
+}
+
+/* — månedskalender — */
+.cal { border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: clamp(16px, 2.4vw, 26px); background: color-mix(in srgb, #fff 40%, transparent); }
+.cal-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.cal-title { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 0; text-transform: capitalize; }
+.cal-nav { display: flex; gap: 6px; }
+.cal-nav button { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--color-divider); background: transparent; border-radius: var(--radius-md); cursor: pointer; color: inherit; font-size: 15px; }
+.cal-nav button:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow { font-family: var(--font-display); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; text-align: center; padding: 4px 0 8px; color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+.cal-cell { aspect-ratio: 1 / 1; min-height: 42px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-family: var(--font-display); font-size: 13px; font-feature-settings: 'tnum' 1; border: 1px solid transparent; background: none; color: inherit; padding: 0; }
+.cal-cell.is-empty { visibility: hidden; }
+.cal-cell.is-today { border-color: var(--color-accent-300); }
+.cal-cell.has-gig { background: var(--spice-coral); color: #fff; cursor: pointer; }
+.cal-cell.has-gig:hover { filter: brightness(.93); }
+.cal-cell.has-gig.is-past { background: var(--color-surface); color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+.cal-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.gig-row.is-flash { animation: flash 1.4s ease; }
+@keyframes flash { 0%, 40% { background: var(--spice-yellow-100); } 100% { background: transparent; } }
+
+.view-toggle { display: inline-flex; border: 1px solid var(--color-divider); border-radius: var(--radius-md); overflow: hidden; }
+.view-toggle button { font-family: var(--font-heading); font-weight: 600; font-size: 13px; padding: 8px 15px; background: transparent; border: 0; cursor: pointer; color: inherit; }
+.view-toggle button + button { border-left: 1px solid var(--color-divider); }
+.view-toggle button[aria-pressed="true"] { background: var(--spice-dark); color: #f3f2f2; }
+
+/* — booking — */
+.booking-grid { padding: 70px 0 42px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 42px clamp(28px, 6vw, 72px); align-items: start; }
+.booking-form { border: 1px solid var(--color-accent-300); border-radius: var(--radius-md); background: var(--color-accent-100); padding: clamp(22px, 3vw, 36px); display: grid; gap: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-status { margin: 0; font-size: 14px; line-height: 22px; padding: 12px 14px; border-radius: var(--radius-md); display: none; }
+.form-status.is-ok { display: block; background: var(--spice-green-100); color: var(--spice-green-700); }
+.form-status.is-error { display: block; background: var(--spice-coral-100); color: var(--spice-coral-700); }
+.contact-links { margin-top: 32px; border-top: 0.5px solid var(--color-hairline); padding-top: 24px; display: grid; gap: 6px; font-size: 15px; }
+
+footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-dark); color: color-mix(in srgb, #f3f2f2 78%, transparent); }
+.footer-inner { max-width: var(--wrap); margin: 0 auto; padding: 42px clamp(20px, 5vw, 56px); display: flex; gap: 24px; flex-wrap: wrap; justify-content: space-between; align-items: baseline; font-size: 14px; }
+.footer-inner .script { font-size: 34px; color: var(--spice-coral-300); line-height: 1; }
+.footer-inner a { color: var(--spice-green-300); }
+
+@media (max-width: 860px) {
+  .hero, .two-col, .booking-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 48px; }
+  .two-col { padding: 56px 0 48px; }
+  .prose { text-align: left; }
+}
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#indhold">Spring til indhold</a>
+
+<nav class="nav">
+  <a href="#/" class="nav-brand" data-route="forside" aria-label="Trio Milagre — forside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 798 460" role="img" aria-label="Trio Milagre" fill="currentColor"><g transform="translate(0.000000,460.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"> <path d="M1750 4270 c-183 -14 -521 -79 -947 -180 -101 -25 -114 -39 -73 -80 25 -25 66 -25 129 0 56 22 372 113 376 108 1 -2 -17 -66 -42 -143 -70 -225 -133 -492 -133 -567 0 -29 23 -48 58 -48 16 0 22 16 42 113 29 148 101 421 140 533 18 49 34 101 37 117 3 15 8 29 12 32 26 15 458 75 548 75 50 0 74 13 57 30 -15 14 -95 18 -204 10z"/> <path d="M1909 4121 c-35 -35 -38 -68 -6 -80 34 -13 83 15 108 61 29 53 -53 68 -102 19z"/> <path d="M2225 4035 c-97 -51 -195 -172 -195 -241 0 -19 -19 -46 -70 -98 -70 -71 -70 -71 -70 -30 0 22 14 89 30 149 37 128 35 137 -22 133 -41 -3 -43 -5 -61 -53 -42 -111 -61 -289 -34 -322 27 -35 77 -15 148 57 69 70 69 70 103 32 118 -128 432 79 403 266 -10 60 -73 100 -115 73 -11 -6 -9 -16 8 -50 25 -46 19 -95 -20 -171 -82 -160 -221 -166 -196 -9 15 94 124 239 179 239 49 0 40 31 -13 45 -17 4 -41 -2 -75 -20z"/> <path d="M1667 3922 c-20 -15 -60 -55 -87 -90 -53 -67 -60 -68 -34 -7 21 52 13 65 -40 65 -54 0 -49 8 -90 -142 -67 -244 -67 -257 -5 -258 23 0 29 7 49 63 39 109 158 287 191 287 5 0 14 -11 19 -24 8 -22 47 -53 55 -44 1 2 10 36 19 77 24 105 -1 128 -77 73z"/> <path d="M7635 3675 c-115 -41 -140 -196 -39 -245 30 -15 30 -15 -25 -102 -61 -95 -71 -103 -71 -59 0 38 -11 45 -66 36 -53 -8 -63 -24 -41 -70 17 -36 52 -54 70 -36 35 35 35 -3 0 -74 -27 -55 -50 -74 -40 -32 10 38 -6 51 -54 44 -58 -8 -73 -28 -52 -73 19 -39 43 -50 73 -34 33 18 35 -11 7 -92 -35 -102 -173 -497 -186 -533 -11 -30 -11 -30 -114 -31 -263 -2 -463 -169 -568 -473 -24 -69 -24 -78 4 -85 13 -3 36 -15 50 -27 52 -40 26 -175 -47 -253 -29 -30 -26 -41 14 -50 21 -5 31 1 59 35 95 115 109 285 27 329 -33 17 -32 27 7 130 81 212 217 331 421 366 151 26 147 46 50 -226 -194 -540 -187 -514 -143 -529 24 -8 30 -15 24 -28 -26 -69 -64 -228 -55 -237 11 -11 12 -9 54 131 30 100 34 108 56 105 34 -4 34 -1 4 -114 -32 -122 -40 -168 -27 -168 9 0 84 251 83 278 0 12 121 455 180 657 26 88 124 440 179 640 11 39 22 85 26 102 6 32 21 50 32 40 2 -3 -20 -92 -51 -199 -100 -349 -187 -660 -236 -843 -27 -99 -62 -227 -79 -284 -36 -122 -37 -128 -12 -136 18 -5 17 -12 -16 -142 -19 -75 -31 -143 -28 -151 10 -26 20 -1 44 103 43 188 37 174 75 168 33 -5 34 -5 46 48 36 158 170 702 173 705 2 2 30 -16 63 -40 173 -129 234 -350 161 -580 -28 -88 -28 -88 -1 -117 27 -28 27 -28 -9 -17 -94 29 -171 -80 -171 -242 0 -102 43 -180 100 -180 33 0 41 -53 21 -133 -15 -62 -15 -62 53 -133 37 -39 86 -96 110 -127 23 -31 46 -55 50 -52 21 13 45 145 45 250 0 110 0 110 -40 116 -92 12 -129 68 -129 194 -1 135 66 217 166 201 36 -6 37 -5 45 31 19 90 8 293 -20 378 -67 199 -204 360 -394 465 -24 13 -43 30 -43 37 0 7 31 147 70 311 38 163 70 300 70 304 0 4 15 4 34 1 33 -5 33 -5 40 86 4 50 12 91 17 91 22 0 49 -22 49 -39 0 -34 57 -42 83 -13 49 54 -3 127 -62 90 -13 -8 -26 -9 -40 -2 -19 9 -19 10 7 71 27 62 39 71 76 57 9 -3 16 -17 16 -29 0 -26 28 -40 58 -30 36 11 56 97 30 123 -17 17 -57 15 -64 -3 -7 -17 -40 -20 -49 -5 -4 6 7 32 25 58 38 58 44 79 38 146 -9 112 -109 178 -213 141z m79 -59 c69 -29 71 -145 3 -186 -18 -11 -39 -20 -47 -20 -8 1 0 7 17 15 34 15 73 67 73 98 0 26 -54 77 -81 77 -49 0 -80 -70 -44 -100 20 -17 33 -5 27 26 -4 21 -1 25 14 22 45 -8 22 -68 -27 -68 -69 0 -73 106 -5 136 39 16 31 16 70 0z m-66 -388 c-74 -176 -88 -201 -104 -185 -8 7 121 257 131 257 2 0 -10 -33 -27 -72z m-69 -30 c-12 -24 -37 -68 -55 -99 -19 -31 -34 -69 -34 -84 0 -15 -57 -199 -126 -409 -277 -837 -313 -944 -324 -984 -7 -26 -17 -42 -26 -42 -11 0 -14 6 -8 23 17 55 247 754 350 1064 63 188 114 353 114 365 0 21 113 208 125 208 3 0 -4 -19 -16 -42z m238 -1545 c-3 -10 -5 -4 -5 12 0 17 2 24 5 18 2 -7 2 -21 0 -30z"/> <path d="M4045 3276 c-140 -67 -276 -289 -395 -647 -46 -140 -100 -384 -115 -521 -12 -110 -203 -337 -251 -297 -32 27 -11 140 77 408 50 154 50 154 30 174 -25 26 -76 26 -101 1 -23 -24 -104 -258 -130 -376 -78 -348 116 -411 325 -104 l40 59 12 -68 c20 -108 70 -165 146 -165 38 0 125 49 160 91 36 41 47 41 47 2 0 -32 51 -83 84 -83 63 0 145 67 230 189 l51 73 5 -90 c6 -114 25 -145 89 -150 53 -4 97 22 148 89 38 50 38 50 45 2 5 -36 15 -55 38 -75 85 -77 233 12 379 230 23 34 43 62 45 62 7 0 -43 -196 -74 -295 -48 -149 -52 -155 -105 -155 -24 0 -133 -11 -242 -25 -451 -57 -735 -120 -1456 -324 -854 -242 -1391 -334 -1942 -334 -454 -1 -606 34 -759 172 -30 26 -30 26 -3 -7 37 -45 78 -79 139 -113 65 -35 52 -36 -76 -3 -152 39 -311 119 -391 198 -74 73 -78 72 -27 -4 186 -274 744 -422 1383 -365 449 40 911 138 1969 419 195 52 356 93 358 92 1 -2 -34 -25 -79 -51 -379 -224 -364 -525 31 -641 97 -28 297 -26 405 4 338 96 648 414 818 840 20 49 7 47 236 32 552 -38 1246 -228 1668 -457 203 -110 386 -225 528 -330 83 -62 28 -7 -79 80 -273 219 -652 426 -978 533 -129 42 -153 58 -36 24 479 -140 968 -391 1311 -673 59 -49 107 -85 107 -81 0 4 -19 32 -42 63 -292 391 -795 680 -1468 845 -312 77 -546 106 -901 113 l-287 6 30 80 c27 76 106 187 177 251 26 24 26 24 -2 -60 -42 -124 -42 -122 0 -133 62 -18 80 -14 88 17 11 48 131 284 183 362 28 42 79 102 114 135 l63 60 5 -60 c12 -132 51 -138 97 -15 102 269 -54 261 -259 -13 -32 -43 -58 -76 -58 -73 0 3 18 51 40 106 49 123 49 126 4 145 -84 35 -83 36 -169 -202 -43 -120 -51 -134 -131 -231 -47 -57 -88 -102 -90 -99 -3 2 13 77 36 165 22 89 40 170 40 181 0 11 7 36 16 54 48 100 -79 168 -228 123 -131 -39 -306 -203 -385 -361 -55 -110 -166 -237 -193 -220 -31 19 -2 188 57 334 39 96 38 105 -12 121 -53 17 -73 -1 -139 -125 -102 -194 -214 -335 -266 -335 -45 0 -8 165 66 288 110 186 254 276 360 226 41 -20 51 -13 38 23 -25 70 -158 94 -254 44 -150 -77 -293 -252 -336 -411 -37 -133 -162 -228 -209 -157 -24 37 -36 125 -29 210 7 79 7 79 79 170 361 459 562 986 399 1047 -35 14 -43 13 -99 -14z m68 -152 c-3 -145 -183 -533 -358 -774 -63 -85 -64 -82 -31 55 77 318 212 634 318 747 60 66 73 60 71 -28z m975 -761 c-6 -12 -28 -62 -60 -132 -120 -267 -393 -507 -348 -305 33 147 200 373 313 425 42 18 102 26 95 12z m-283 -888 c-159 -361 -487 -656 -815 -735 -320 -76 -565 74 -461 284 127 258 698 488 1253 505 48 1 48 1 23 -54z"/> <path d="M2115 3188 c-8 -37 -255 -1541 -255 -1553 0 -3 -19 5 -42 17 -65 33 -211 38 -298 8 -136 -46 -218 -144 -208 -249 6 -62 34 -100 99 -136 184 -100 481 26 504 214 3 25 19 125 35 221 16 96 44 258 60 360 17 102 47 275 66 385 19 110 42 246 51 303 9 56 20 101 24 100 4 -2 77 -82 162 -178 85 -96 172 -195 194 -219 40 -45 40 -45 174 39 313 194 410 252 415 247 4 -3 -3 -59 -14 -124 -31 -182 -121 -701 -133 -769 -11 -61 -11 -61 -72 -36 -191 77 -459 -55 -461 -227 -4 -230 438 -237 555 -8 11 21 27 82 34 135 15 99 46 276 136 782 77 433 100 572 96 577 -5 4 -213 -122 -481 -290 -107 -66 -164 -97 -172 -91 -11 8 -293 329 -415 472 -41 48 -47 50 -54 20z m270 -403 c97 -110 180 -201 185 -203 7 -3 459 265 523 310 35 25 39 21 31 -29 -6 -38 -9 -41 -187 -151 -100 -61 -226 -138 -279 -171 -115 -72 -78 -92 -298 159 -90 102 -172 195 -183 207 -16 18 -18 30 -12 69 8 56 -19 79 220 -191z m359 -1003 c3 -5 -14 -18 -37 -29 -24 -11 -68 -44 -99 -72 -53 -49 -57 -51 -67 -32 -23 43 2 86 71 120 43 21 122 29 132 13z m-113 -143 c-13 -11 -27 -17 -30 -13 -3 3 5 14 18 25 13 11 27 17 30 13 3 -3 -5 -14 -18 -25z m-986 -19 c3 -5 -16 -20 -43 -34 -26 -13 -71 -45 -99 -70 -59 -54 -61 -54 -73 -21 -15 39 4 71 62 104 54 31 139 43 153 21z m900 -120 c22 -11 52 -20 67 -20 15 0 30 -4 33 -10 10 -17 -47 -11 -91 9 -23 10 -45 24 -48 30 -10 15 -6 14 39 -9z m-1009 -26 c-15 -14 -31 -23 -34 -20 -9 9 30 46 47 46 11 -1 8 -8 -13 -26z m6 -174 l53 -8 -53 -1 c-59 -1 -108 16 -137 48 -18 21 -16 20 32 -4 28 -15 75 -30 105 -35z"/> <path d="M3392 2720 c-42 -26 -68 -84 -53 -116 31 -68 153 -18 167 68 11 64 -47 88 -114 48z"/> <path d="M6088 2461 c-154 -49 -301 -205 -359 -380 -111 -329 209 -452 495 -190 68 62 166 190 166 216 0 30 -37 9 -74 -42 -123 -172 -320 -295 -409 -254 -45 20 -66 93 -53 183 7 45 7 45 64 61 141 41 336 174 369 252 53 128 -44 203 -199 154z m100 -83 c9 -75 -150 -236 -260 -263 -36 -9 -36 4 -2 64 48 82 98 142 158 187 67 51 99 55 104 12z"/> <path d="M6817 1689 c-38 -22 -112 -253 -86 -270 43 -28 57 -8 84 121 19 90 29 110 47 92 21 -21 48 -15 48 11 0 45 -51 70 -93 46z"/> <path d="M7402 1554 c-18 -12 -21 -22 -17 -47 4 -22 -4 -62 -24 -124 -37 -111 -47 -184 -32 -240 20 -72 95 -108 135 -64 23 26 4 37 -36 20 -67 -28 -64 84 8 303 41 124 25 194 -34 152z"/> <path d="M7340 1515 c0 -9 6 -12 15 -9 8 4 15 10 15 15 0 5 -7 9 -15 9 -8 0 -15 -7 -15 -15z"/> </g></svg></a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#/trioen" data-route="trioen">Trioen</a>
+    <a href="#/lyt" data-route="lyt">Lyt &amp; se</a>
+    <a href="#/koncerter" data-route="koncerter">Koncerter</a>
+    <a href="#/booking" data-route="booking" class="btn btn-coral">Book trioen</a>
+  </div>
+</nav>
+
+<main id="indhold">
+
+  <!-- ═══════════ FORSIDE ═══════════ -->
+  <section class="page" id="page-forside">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Bossa nova</span>
+        <h1 class="display">
+          <span>Tre musikere</span>
+          <span>én bølge af</span>
+          <span class="script">brasiliansk ro</span>
+        </h1>
+        <p style="max-width: 52ch; margin: 34px 0 0">Vi spiller bossa nova, som den blev tænkt: sangen tæt på mikrofonen, bassen i synkope, klaveret der lægger sig ind under i stedet for oven på. Musik der fylder rummet uden at overtage det.</p>
+        <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 28px">
+          <a href="#/booking" class="btn btn-coral">Book trioen</a>
+          <a href="#/lyt" class="btn btn-yellow">Hør et nummer</a>
+        </div>
+      </div>
+      <div>
+        <div class="plate"><span class="slot" data-slot="hero" style="aspect-ratio: 4 / 5"></span></div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact" style="background: var(--spice-coral); color: #fff">
+        <p class="fact-num">3</p><p class="fact-lbl">Musikere, akustisk sæt</p>
+      </div>
+      <div class="fact" style="background: var(--spice-yellow); color: var(--spice-dark)">
+        <p class="fact-num">2 × 45</p><p class="fact-lbl" style="opacity: .65">Minutter, eller efter aftale</p>
+      </div>
+      <div class="fact" style="background: var(--spice-teal); color: #fff">
+        <p class="fact-num">120</p><p class="fact-lbl">Numre på repertoirelisten</p>
+      </div>
+      <div class="fact" style="background: var(--spice-purple); color: #fff">
+        <p class="fact-num">0</p><p class="fact-lbl">Behov for stort anlæg</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <span class="eyebrow">Om trioen</span>
+        <h2 class="h2-display">Milagre betyder mirakel<br><span class="script" style="font-size: 1.2em; color: var(--color-accent)">Vi mener det stille</span></h2>
+        <a href="#/trioen" class="btn btn-teal" style="margin-top: 26px">Mød musikerne</a>
+      </div>
+      <div>
+        <p class="prose">Trio Milagre opstod om et køkkenbord med tre stole og for mange plader. Vi spiller Jobim og João Gilberto, Baden Powell og Nara Leão — og et par danske sange, der viste sig at kunne tåle en portugisisk rytme.</p>
+        <p class="prose">Vi spiller helst uforstærket, eller med lige nok. Det gør musikken til noget, man opdager frem for noget, man udsættes for: en aften hvor rummet bliver en smule varmere, uden at nogen kan pege på hvornår det skete.</p>
+      </div>
+    </div>
+
+    <section class="rule-top" style="padding: 56px 0 70px">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Seneste opslag</span>
+          <h2 class="h2-display">Fra <span class="script" style="font-size: 1.2em; color: var(--color-accent)">Instagram</span></h2>
+        </div>
+        <a class="btn btn-purple" data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
+      </div>
+      <div class="ig-grid" data-ig-grid data-limit="6" aria-live="polite"></div>
+      <p class="note" style="margin: 24px 0 0" id="igNote"></p>
+    </section>
+
+    <section class="rule-top" style="padding: 56px 0 84px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px">
+        <h2 class="h2-display">Næste koncerter</h2>
+        <a href="#/koncerter">Hele kalenderen</a>
+      </div>
+      <div id="nextGigs"></div>
+    </section>
+
+    <section class="quote-block">
+      <blockquote>“De spillede i to timer, og ingen kiggede på deres telefon. Det har jeg ikke set før.”</blockquote>
+      <figcaption>— Værtinde, sommerfest i Valby</figcaption>
+    </section>
+  </section>
+
+  <!-- ═══════════ TRIOEN ═══════════ -->
+  <section class="page" id="page-trioen">
+    <section style="padding: 70px 0 42px">
+      <span class="eyebrow">Trioen</span>
+      <h1 class="h1-display">Sang bas<br><span class="script" style="font-size: 1.2em; color: var(--color-accent)">og to varme hænder</span></h1>
+      <p class="lead" style="max-width: 58ch; margin: 32px 0 0">Tre musikere med hver sin vej ind i den brasilianske sangskat — og en fælles aftale om at spille så lavt, at man kan høre teksten.</p>
+    </section>
+    <div id="members" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 42px 40px; padding-bottom: 70px"></div>
+    <section class="rule-top" style="padding: 56px 0 84px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px clamp(28px, 6vw, 72px)">
+      <h2 class="h2-display" style="font-size: clamp(28px, 3vw, 38px)">Hvad vi spiller</h2>
+      <div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px" id="repertoire"></div>
+        <p class="lead" style="margin: 26px 0 0; max-width: 56ch">Fuld repertoireliste sendes gerne på forhånd — og vi lærer gerne et enkelt nummer, hvis der er en sang, aftenen ikke kan undvære.</p>
+      </div>
+    </section>
+  </section>
+
+  <!-- ═══════════ LYT & SE ═══════════ -->
+  <section class="page" id="page-lyt">
+    <section style="padding: 70px 0 42px">
+      <span class="eyebrow">Lyt &amp; se</span>
+      <h1 class="h1-display">Musikken <span class="script" style="font-size: 1.2em; color: var(--color-accent)">først</span></h1>
+      <p class="lead" style="margin: 30px 0 0">Optagelser fra stuer, gårde og små scener. Videoerne kommer fra Instagram; lyden fra vores egne optagelser.</p>
+    </section>
+    <div id="videos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding-bottom: 56px"></div>
+    <section class="rule-top" style="padding: 48px 0 0">
+      <h2 class="h2-display" style="font-size: clamp(26px, 2.6vw, 32px); margin-bottom: 28px">Fra <span class="script" style="font-size: 1.2em; color: var(--color-accent)">Instagram</span></h2>
+      <div class="ig-grid" data-ig-grid data-limit="3" aria-live="polite"></div>
+    </section>
+    <section style="padding: 48px 0 84px; display: flex; gap: 18px; flex-wrap: wrap; align-items: center">
+      <p style="margin: 0; font-size: 15.5px; max-width: 44ch">Hele arkivet — og de nyeste klip — ligger på Instagram:</p>
+      <a class="btn btn-purple" data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
+    </section>
+  </section>
+
+  <!-- ═══════════ KONCERTER ═══════════ -->
+  <section class="page" id="page-koncerter">
+    <section style="padding: 70px 0 30px">
+      <span class="eyebrow">Kalender</span>
+      <h1 class="h1-display">Hvor vi <span class="script" style="font-size: 1.2em; color: var(--color-accent)">spiller</span></h1>
+    </section>
+
+    <section style="padding-bottom: 20px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between">
+      <div class="view-toggle" role="group" aria-label="Vælg visning">
+        <button type="button" id="viewList" aria-pressed="true">Liste</button>
+        <button type="button" id="viewCal" aria-pressed="false">Månedskalender</button>
+      </div>
+      <label class="btn btn-quiet" style="gap: 9px; cursor: pointer">
+        <input type="checkbox" id="showPast" style="accent-color: var(--spice-coral); width: 15px; height: 15px; margin: 0">
+        Vis også afholdte
+      </label>
+    </section>
+
+    <section id="calWrap" style="padding-bottom: 42px; display: none">
+      <div class="cal">
+        <div class="cal-head">
+          <h2 class="cal-title" id="calTitle">—</h2>
+          <div class="cal-nav">
+            <button type="button" id="calPrev" aria-label="Forrige måned">‹</button>
+            <button type="button" id="calNext" aria-label="Næste måned">›</button>
+          </div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+      <p class="note" style="margin: 16px 0 0">Farvede dage er spillejobs. Klik en dag for at se detaljerne i listen nedenfor.</p>
+    </section>
+
+    <section style="padding-bottom: 42px">
+      <div id="gigList"></div>
+      <p class="note" id="gigEmpty" style="display: none; padding: 32px 0">Ingen kommende koncerter i kalenderen lige nu. Skriv til os, hvis I vil have os forbi.</p>
+    </section>
+
+    <section class="rule-top" style="padding: 48px 0 84px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
+      <div>
+        <h2 class="h2-display" style="font-size: 26px">Vil du have os forbi</h2>
+        <p class="lead" style="margin: 14px 0 0; font-size: 15px; line-height: 27px">Vi spiller både aftenkoncerter og korte sæt til receptioner, vielser og middage.</p>
+        <a href="#/booking" class="btn btn-coral" style="margin-top: 20px">Book trioen</a>
+      </div>
+      <div style="border-left: 0.5px solid var(--color-divider); padding-left: 32px">
+        <h2 class="h2-display" style="font-size: 26px">Praktisk</h2>
+        <p class="lead" style="margin: 14px 0 0; font-size: 15px; line-height: 27px">Vi medbringer egne instrumenter og et lille anlæg. Vi har brug for 6 m², tre stole uden armlæn og en stikkontakt.</p>
+      </div>
+    </section>
+  </section>
+
+  <!-- ═══════════ BOOKING ═══════════ -->
+  <section class="page" id="page-booking">
+    <div class="booking-grid">
+      <div>
+        <span class="eyebrow">Kontakt &amp; booking</span>
+        <h1 class="h1-display" style="font-size: clamp(36px, 4.6vw, 62px)">Skriv til os om <span class="script" style="font-size: 1.22em; color: var(--color-accent)">aftenen</span></h1>
+        <p class="lead" style="max-width: 46ch; margin: 28px 0 0">Fortæl kort hvad det er for en anledning, hvor mange I er, og hvor længe vi skal spille. Så sender vi et pristilbud og en repertoireliste inden for et par dage.</p>
+        <div class="contact-links">
+          <a data-mail-link></a>
+          <a data-tel-link></a>
+          <a data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="field">
+          <label for="tm-name">Navn</label>
+          <input class="input" id="tm-name" name="navn" type="text" autocomplete="name" placeholder="Dit navn" required>
+          <p class="field-error" id="err-tm-name">Skriv dit navn, så vi ved hvem vi svarer.</p>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="tm-mail">E-mail</label>
+            <input class="input" id="tm-mail" name="email" type="email" autocomplete="email" placeholder="dig@eksempel.dk" required>
+            <p class="field-error" id="err-tm-mail">Skriv en e-mail vi kan svare på.</p>
+          </div>
+          <div class="field">
+            <label for="tm-phone">Telefon <span style="opacity:.6">(valgfrit)</span></label>
+            <input class="input" id="tm-phone" name="telefon" type="tel" autocomplete="tel" placeholder="+45 00 00 00 00">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="tm-date">Dato</label>
+            <input class="input" id="tm-date" name="dato" type="date" required>
+            <p class="field-error" id="err-tm-date">Vælg en dato — gerne en foreløbig.</p>
+          </div>
+          <div class="field">
+            <label for="tm-place">Sted</label>
+            <input class="input" id="tm-place" name="sted" type="text" placeholder="By eller adresse" required>
+            <p class="field-error" id="err-tm-place">Skriv hvor det foregår.</p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="tm-type">Anledning</label>
+            <select class="input" id="tm-type" name="anledning">
+              <option>Reception</option>
+              <option>Bryllup eller vielse</option>
+              <option>Middag eller fest</option>
+              <option>Koncert på spillested</option>
+              <option>Firmaarrangement</option>
+              <option>Andet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tm-guests">Antal gæster</label>
+            <input class="input" id="tm-guests" name="gaester" type="number" min="1" step="1" placeholder="Fx 60">
+          </div>
+        </div>
+        <div class="field">
+          <label for="tm-set">Hvor længe skal vi spille?</label>
+          <select class="input" id="tm-set" name="saet">
+            <option>45 minutter — ét sæt</option>
+            <option>2 × 45 minutter med pause</option>
+            <option>60–90 minutter — fuldt program</option>
+            <option>Ved ikke endnu</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tm-msg">Om anledningen</label>
+          <textarea class="input" id="tm-msg" name="besked" rows="4" placeholder="Fx: sølvbryllup for 60 gæster, gerne to sæt" required></textarea>
+          <p class="field-error" id="err-tm-msg">Skriv et par linjer om aftenen.</p>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="tm-company">Firma</label><input id="tm-company" name="firma" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="btn btn-coral btn-block" id="bookingSubmit">Send forespørgsel</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+
+    <section class="rule-top" style="padding: 48px 0 84px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px" id="packages"></div>
+    </section>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 798 460" role="img" aria-label="Trio Milagre" fill="currentColor"><g transform="translate(0.000000,460.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"> <path d="M1750 4270 c-183 -14 -521 -79 -947 -180 -101 -25 -114 -39 -73 -80 25 -25 66 -25 129 0 56 22 372 113 376 108 1 -2 -17 -66 -42 -143 -70 -225 -133 -492 -133 -567 0 -29 23 -48 58 -48 16 0 22 16 42 113 29 148 101 421 140 533 18 49 34 101 37 117 3 15 8 29 12 32 26 15 458 75 548 75 50 0 74 13 57 30 -15 14 -95 18 -204 10z"/> <path d="M1909 4121 c-35 -35 -38 -68 -6 -80 34 -13 83 15 108 61 29 53 -53 68 -102 19z"/> <path d="M2225 4035 c-97 -51 -195 -172 -195 -241 0 -19 -19 -46 -70 -98 -70 -71 -70 -71 -70 -30 0 22 14 89 30 149 37 128 35 137 -22 133 -41 -3 -43 -5 -61 -53 -42 -111 -61 -289 -34 -322 27 -35 77 -15 148 57 69 70 69 70 103 32 118 -128 432 79 403 266 -10 60 -73 100 -115 73 -11 -6 -9 -16 8 -50 25 -46 19 -95 -20 -171 -82 -160 -221 -166 -196 -9 15 94 124 239 179 239 49 0 40 31 -13 45 -17 4 -41 -2 -75 -20z"/> <path d="M1667 3922 c-20 -15 -60 -55 -87 -90 -53 -67 -60 -68 -34 -7 21 52 13 65 -40 65 -54 0 -49 8 -90 -142 -67 -244 -67 -257 -5 -258 23 0 29 7 49 63 39 109 158 287 191 287 5 0 14 -11 19 -24 8 -22 47 -53 55 -44 1 2 10 36 19 77 24 105 -1 128 -77 73z"/> <path d="M7635 3675 c-115 -41 -140 -196 -39 -245 30 -15 30 -15 -25 -102 -61 -95 -71 -103 -71 -59 0 38 -11 45 -66 36 -53 -8 -63 -24 -41 -70 17 -36 52 -54 70 -36 35 35 35 -3 0 -74 -27 -55 -50 -74 -40 -32 10 38 -6 51 -54 44 -58 -8 -73 -28 -52 -73 19 -39 43 -50 73 -34 33 18 35 -11 7 -92 -35 -102 -173 -497 -186 -533 -11 -30 -11 -30 -114 -31 -263 -2 -463 -169 -568 -473 -24 -69 -24 -78 4 -85 13 -3 36 -15 50 -27 52 -40 26 -175 -47 -253 -29 -30 -26 -41 14 -50 21 -5 31 1 59 35 95 115 109 285 27 329 -33 17 -32 27 7 130 81 212 217 331 421 366 151 26 147 46 50 -226 -194 -540 -187 -514 -143 -529 24 -8 30 -15 24 -28 -26 -69 -64 -228 -55 -237 11 -11 12 -9 54 131 30 100 34 108 56 105 34 -4 34 -1 4 -114 -32 -122 -40 -168 -27 -168 9 0 84 251 83 278 0 12 121 455 180 657 26 88 124 440 179 640 11 39 22 85 26 102 6 32 21 50 32 40 2 -3 -20 -92 -51 -199 -100 -349 -187 -660 -236 -843 -27 -99 -62 -227 -79 -284 -36 -122 -37 -128 -12 -136 18 -5 17 -12 -16 -142 -19 -75 -31 -143 -28 -151 10 -26 20 -1 44 103 43 188 37 174 75 168 33 -5 34 -5 46 48 36 158 170 702 173 705 2 2 30 -16 63 -40 173 -129 234 -350 161 -580 -28 -88 -28 -88 -1 -117 27 -28 27 -28 -9 -17 -94 29 -171 -80 -171 -242 0 -102 43 -180 100 -180 33 0 41 -53 21 -133 -15 -62 -15 -62 53 -133 37 -39 86 -96 110 -127 23 -31 46 -55 50 -52 21 13 45 145 45 250 0 110 0 110 -40 116 -92 12 -129 68 -129 194 -1 135 66 217 166 201 36 -6 37 -5 45 31 19 90 8 293 -20 378 -67 199 -204 360 -394 465 -24 13 -43 30 -43 37 0 7 31 147 70 311 38 163 70 300 70 304 0 4 15 4 34 1 33 -5 33 -5 40 86 4 50 12 91 17 91 22 0 49 -22 49 -39 0 -34 57 -42 83 -13 49 54 -3 127 -62 90 -13 -8 -26 -9 -40 -2 -19 9 -19 10 7 71 27 62 39 71 76 57 9 -3 16 -17 16 -29 0 -26 28 -40 58 -30 36 11 56 97 30 123 -17 17 -57 15 -64 -3 -7 -17 -40 -20 -49 -5 -4 6 7 32 25 58 38 58 44 79 38 146 -9 112 -109 178 -213 141z m79 -59 c69 -29 71 -145 3 -186 -18 -11 -39 -20 -47 -20 -8 1 0 7 17 15 34 15 73 67 73 98 0 26 -54 77 -81 77 -49 0 -80 -70 -44 -100 20 -17 33 -5 27 26 -4 21 -1 25 14 22 45 -8 22 -68 -27 -68 -69 0 -73 106 -5 136 39 16 31 16 70 0z m-66 -388 c-74 -176 -88 -201 -104 -185 -8 7 121 257 131 257 2 0 -10 -33 -27 -72z m-69 -30 c-12 -24 -37 -68 -55 -99 -19 -31 -34 -69 -34 -84 0 -15 -57 -199 -126 -409 -277 -837 -313 -944 -324 -984 -7 -26 -17 -42 -26 -42 -11 0 -14 6 -8 23 17 55 247 754 350 1064 63 188 114 353 114 365 0 21 113 208 125 208 3 0 -4 -19 -16 -42z m238 -1545 c-3 -10 -5 -4 -5 12 0 17 2 24 5 18 2 -7 2 -21 0 -30z"/> <path d="M4045 3276 c-140 -67 -276 -289 -395 -647 -46 -140 -100 -384 -115 -521 -12 -110 -203 -337 -251 -297 -32 27 -11 140 77 408 50 154 50 154 30 174 -25 26 -76 26 -101 1 -23 -24 -104 -258 -130 -376 -78 -348 116 -411 325 -104 l40 59 12 -68 c20 -108 70 -165 146 -165 38 0 125 49 160 91 36 41 47 41 47 2 0 -32 51 -83 84 -83 63 0 145 67 230 189 l51 73 5 -90 c6 -114 25 -145 89 -150 53 -4 97 22 148 89 38 50 38 50 45 2 5 -36 15 -55 38 -75 85 -77 233 12 379 230 23 34 43 62 45 62 7 0 -43 -196 -74 -295 -48 -149 -52 -155 -105 -155 -24 0 -133 -11 -242 -25 -451 -57 -735 -120 -1456 -324 -854 -242 -1391 -334 -1942 -334 -454 -1 -606 34 -759 172 -30 26 -30 26 -3 -7 37 -45 78 -79 139 -113 65 -35 52 -36 -76 -3 -152 39 -311 119 -391 198 -74 73 -78 72 -27 -4 186 -274 744 -422 1383 -365 449 40 911 138 1969 419 195 52 356 93 358 92 1 -2 -34 -25 -79 -51 -379 -224 -364 -525 31 -641 97 -28 297 -26 405 4 338 96 648 414 818 840 20 49 7 47 236 32 552 -38 1246 -228 1668 -457 203 -110 386 -225 528 -330 83 -62 28 -7 -79 80 -273 219 -652 426 -978 533 -129 42 -153 58 -36 24 479 -140 968 -391 1311 -673 59 -49 107 -85 107 -81 0 4 -19 32 -42 63 -292 391 -795 680 -1468 845 -312 77 -546 106 -901 113 l-287 6 30 80 c27 76 106 187 177 251 26 24 26 24 -2 -60 -42 -124 -42 -122 0 -133 62 -18 80 -14 88 17 11 48 131 284 183 362 28 42 79 102 114 135 l63 60 5 -60 c12 -132 51 -138 97 -15 102 269 -54 261 -259 -13 -32 -43 -58 -76 -58 -73 0 3 18 51 40 106 49 123 49 126 4 145 -84 35 -83 36 -169 -202 -43 -120 -51 -134 -131 -231 -47 -57 -88 -102 -90 -99 -3 2 13 77 36 165 22 89 40 170 40 181 0 11 7 36 16 54 48 100 -79 168 -228 123 -131 -39 -306 -203 -385 -361 -55 -110 -166 -237 -193 -220 -31 19 -2 188 57 334 39 96 38 105 -12 121 -53 17 -73 -1 -139 -125 -102 -194 -214 -335 -266 -335 -45 0 -8 165 66 288 110 186 254 276 360 226 41 -20 51 -13 38 23 -25 70 -158 94 -254 44 -150 -77 -293 -252 -336 -411 -37 -133 -162 -228 -209 -157 -24 37 -36 125 -29 210 7 79 7 79 79 170 361 459 562 986 399 1047 -35 14 -43 13 -99 -14z m68 -152 c-3 -145 -183 -533 -358 -774 -63 -85 -64 -82 -31 55 77 318 212 634 318 747 60 66 73 60 71 -28z m975 -761 c-6 -12 -28 -62 -60 -132 -120 -267 -393 -507 -348 -305 33 147 200 373 313 425 42 18 102 26 95 12z m-283 -888 c-159 -361 -487 -656 -815 -735 -320 -76 -565 74 -461 284 127 258 698 488 1253 505 48 1 48 1 23 -54z"/> <path d="M2115 3188 c-8 -37 -255 -1541 -255 -1553 0 -3 -19 5 -42 17 -65 33 -211 38 -298 8 -136 -46 -218 -144 -208 -249 6 -62 34 -100 99 -136 184 -100 481 26 504 214 3 25 19 125 35 221 16 96 44 258 60 360 17 102 47 275 66 385 19 110 42 246 51 303 9 56 20 101 24 100 4 -2 77 -82 162 -178 85 -96 172 -195 194 -219 40 -45 40 -45 174 39 313 194 410 252 415 247 4 -3 -3 -59 -14 -124 -31 -182 -121 -701 -133 -769 -11 -61 -11 -61 -72 -36 -191 77 -459 -55 -461 -227 -4 -230 438 -237 555 -8 11 21 27 82 34 135 15 99 46 276 136 782 77 433 100 572 96 577 -5 4 -213 -122 -481 -290 -107 -66 -164 -97 -172 -91 -11 8 -293 329 -415 472 -41 48 -47 50 -54 20z m270 -403 c97 -110 180 -201 185 -203 7 -3 459 265 523 310 35 25 39 21 31 -29 -6 -38 -9 -41 -187 -151 -100 -61 -226 -138 -279 -171 -115 -72 -78 -92 -298 159 -90 102 -172 195 -183 207 -16 18 -18 30 -12 69 8 56 -19 79 220 -191z m359 -1003 c3 -5 -14 -18 -37 -29 -24 -11 -68 -44 -99 -72 -53 -49 -57 -51 -67 -32 -23 43 2 86 71 120 43 21 122 29 132 13z m-113 -143 c-13 -11 -27 -17 -30 -13 -3 3 5 14 18 25 13 11 27 17 30 13 3 -3 -5 -14 -18 -25z m-986 -19 c3 -5 -16 -20 -43 -34 -26 -13 -71 -45 -99 -70 -59 -54 -61 -54 -73 -21 -15 39 4 71 62 104 54 31 139 43 153 21z m900 -120 c22 -11 52 -20 67 -20 15 0 30 -4 33 -10 10 -17 -47 -11 -91 9 -23 10 -45 24 -48 30 -10 15 -6 14 39 -9z m-1009 -26 c-15 -14 -31 -23 -34 -20 -9 9 30 46 47 46 11 -1 8 -8 -13 -26z m6 -174 l53 -8 -53 -1 c-59 -1 -108 16 -137 48 -18 21 -16 20 32 -4 28 -15 75 -30 105 -35z"/> <path d="M3392 2720 c-42 -26 -68 -84 -53 -116 31 -68 153 -18 167 68 11 64 -47 88 -114 48z"/> <path d="M6088 2461 c-154 -49 -301 -205 -359 -380 -111 -329 209 -452 495 -190 68 62 166 190 166 216 0 30 -37 9 -74 -42 -123 -172 -320 -295 -409 -254 -45 20 -66 93 -53 183 7 45 7 45 64 61 141 41 336 174 369 252 53 128 -44 203 -199 154z m100 -83 c9 -75 -150 -236 -260 -263 -36 -9 -36 4 -2 64 48 82 98 142 158 187 67 51 99 55 104 12z"/> <path d="M6817 1689 c-38 -22 -112 -253 -86 -270 43 -28 57 -8 84 121 19 90 29 110 47 92 21 -21 48 -15 48 11 0 45 -51 70 -93 46z"/> <path d="M7402 1554 c-18 -12 -21 -22 -17 -47 4 -22 -4 -62 -24 -124 -37 -111 -47 -184 -32 -240 20 -72 95 -108 135 -64 23 26 4 37 -36 20 -67 -28 -64 84 8 303 41 124 25 194 -34 152z"/> <path d="M7340 1515 c0 -9 6 -12 15 -9 8 4 15 10 15 15 0 5 -7 9 -15 9 -8 0 -15 -7 -15 -15z"/> </g></svg></span>
+    <span>Bossa nova</span>
+    <a data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   1. OPSÆTNING — det er her I retter, når noget skal ændres
+   ═══════════════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  email: 'booking@triomilagre.com',
+  telefon: '+45 00 00 00 00',
+  instagram: 'https://www.instagram.com/trio_milagre/',
+  instagramHandle: '@trio_milagre',
+
+  // Booking: indsæt jeres Formspree-adresse (formspree.io → nyt formular-ID).
+  // Er feltet tomt, åbner formularen i stedet en færdigskrevet e-mail.
+  bookingEndpoint: '',
+
+  // Instagram: peger på sidens egen funktion i api/instagram.js, som henter
+  // feedet ud fra miljøvariablen IG_FEED_URL i Vercel.
+  // Er IG_FEED_URL ikke sat, vises opslagene fra listen IG_OPSLAG nedenfor.
+  instagramFeedUrl: '/api/instagram'
+};
+
+/* ── Spillejobs ────────────────────────────────────────────────────────
+   Tilføj en linje pr. job. dato: 'ÅÅÅÅ-MM-DD'. tid: '20.00' eller ''.
+   status: 'Fri entré' | 'Billetter' | 'Få pladser' | 'Udsolgt' | 'Privat'
+   billetter: link til billetsalg, eller '' hvis der ikke er noget.       */
+const GIGS = [
+  { dato: '2026-09-12', tid: '20.00', sted: 'Bartof Café',                 by: 'København',   status: 'Fri entré',  billetter: '' },
+  { dato: '2026-09-27', tid: '19.30', sted: 'Bremen Teater, foyer',        by: 'København',   status: 'Billetter',  billetter: '' },
+  { dato: '2026-10-11', tid: '16.00', sted: 'Kulturhuset Islands Brygge',  by: 'København',   status: 'Billetter',  billetter: '' },
+  { dato: '2026-11-01', tid: '22.00', sted: 'Jazzhus Montmartre, sen scene', by: 'København', status: 'Få pladser', billetter: '' },
+  { dato: '2026-11-22', tid: '20.00', sted: 'Godsbanen',                   by: 'Aarhus',      status: 'Billetter',  billetter: '' },
+  { dato: '2026-12-13', tid: '',      sted: 'Privat julefest',             by: 'Frederiksberg', status: 'Udsolgt',  billetter: '' },
+  { dato: '2026-06-21', tid: '15.00', sted: 'Sommerfest i haven',          by: 'Valby',       status: 'Privat',     billetter: '' },
+  { dato: '2026-08-08', tid: '20.00', sted: 'Bispebjerg Kulturhus',        by: 'København',   status: 'Fri entré',  billetter: '' }
+];
+
+/* ── Musikerne ── billede: sti til foto, fx 'billeder/sang.jpg' ─────── */
+const MEMBERS = [
+  { navn: 'Emma Mattatja Anholm Sørensen', rolle: 'Sang', billede: '',
+    link: 'https://www.facebook.com/mattatja',
+    bio: 'Synger på portugisisk, dansk og engelsk og holder teksten på samtaleafstand — bossa novaens egentlige krav til en sanger.' },
+  { navn: 'Anders Sommer', rolle: 'Bas', billede: '', link: '',
+    bio: 'Holder bossa novaens puls dernede, hvor man mærker den mere end man hører den — og lader resten af rummet ligge ovenpå.' },
+  { navn: 'Marckus Stein Hjelland', rolle: 'Klaver og komposition', billede: '',
+    link: 'https://www.facebook.com/dinamarckus',
+    bio: 'Skriver trioens egne numre og spiller klaveret, som bossa novaen vil have det: akkorderne forskudt en anelse, aldrig oven på sangen.' }
+];
+
+/* ── Videoer ── youtube: video-ID'et fra URL'en, fx 'dQw4w9WgXcQ' ───── */
+const VIDEOS = [
+  { titel: 'Corcovado',                 kicker: 'Live · gården',      note: 'Optaget en tirsdag i august, uden forstærkning.', youtube: '', billede: '' },
+  { titel: 'Chega de Saudade',          kicker: 'Live · Bartof Café', note: 'Første sæt, sidste nummer.',                      youtube: '', billede: '' },
+  { titel: 'Berimbau',                  kicker: 'Prøve',              note: 'Baden Powell, langsommere end originalen.',       youtube: '', billede: '' },
+  { titel: 'Kærlighed uden strømper',   kicker: 'Studie',             note: 'En dansk sang, vendt til portugisisk rytme.',     youtube: '', billede: '' }
+];
+
+const PACKAGES = [
+  { kicker: 'Kort sæt',        titel: 'Reception',      body: '45 minutter stille bossa nova under ankomst og velkomst.', meta: 'Fra 45 min · 3 musikere' },
+  { kicker: 'Aftenen igennem', titel: 'Middag & fest',  body: 'To sæt à 45 minutter med pause, tilpasset talerne.',       meta: '2 × 45 min · pause efter aftale' },
+  { kicker: 'Koncert',         titel: 'Spillested',     body: 'Fuldt program med fortællinger mellem numrene.',           meta: '60–90 min · eget anlæg' }
+];
+
+const REPERTOIRE = ['Jobim', 'João Gilberto', 'Baden Powell', 'Nara Leão', 'Vinícius de Moraes', 'Elis Regina', 'Samba-canção', 'Danske sange'];
+
+/* ── Instagram-opslag ──────────────────────────────────────────────────
+   Bruges når CONFIG.instagramFeedUrl står tom. Læg billedet i fx
+   'billeder/instagram/', og sæt link til selve opslaget på Instagram.   */
+const IG_OPSLAG = [
+  { tekst: 'Prøve i gården, inden solen gik ned.', dato: '28. aug', billede: '', link: '' },
+  { tekst: 'Corcovado, tredje gang i dag.',        dato: '21. aug', billede: '', link: '' },
+  { tekst: 'Nye strenge, gammel bas.',             dato: '14. aug', billede: '', link: '' },
+  { tekst: 'Tak til alle jer på Bispebjerg.',      dato: '6. aug',  billede: '', link: '' },
+  { tekst: 'Sætliste skrevet på en serviet.',      dato: '30. jul', billede: '', link: '' },
+  { tekst: 'Nodestativ i modlys.',                   dato: '19. jul', billede: '', link: '' }
+];
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. Herunder kører siden — normalt behøver I ikke rette noget her
+   ═══════════════════════════════════════════════════════════════════════ */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const MATS = ['var(--color-accent-100)', 'var(--spice-coral-100)', 'var(--spice-green-100)', 'var(--spice-blue-100)', 'var(--spice-yellow-100)', 'var(--spice-purple-100)', 'var(--spice-teal-100)'];
+const RAINBOW = ['var(--spice-coral-700)', 'var(--spice-yellow-700)', 'var(--spice-green-700)', 'var(--spice-teal-700)', 'var(--spice-blue-700)', 'var(--spice-purple-700)'];
+const MDR = ['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
+const MDR_KORT = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+function statusFarve(s) {
+  if (s === 'Udsolgt') return 'var(--spice-coral-700)';
+  if (s === 'Få pladser') return 'var(--spice-purple-700)';
+  if (s === 'Fri entré') return 'var(--spice-green-700)';
+  if (s === 'Privat') return 'var(--spice-teal-700)';
+  return 'var(--spice-blue-700)';
+}
+function slotHTML(billede, tekst, ratio, mat) {
+  const bg = mat || MATS[0];
+  if (billede) return `<span class="slot" style="aspect-ratio:${ratio}; background:${bg}"><img src="${esc(billede)}" alt="${esc(tekst)}" loading="lazy"></span>`;
+  return `<span class="slot" style="aspect-ratio:${ratio}; background:${bg}"><span class="slot-label">${esc(tekst)}</span></span>`;
+}
+
+/* ── Datohjælpere ── */
+function parseDato(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); }
+function iDag() { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+function kortDato(iso) { const d = parseDato(iso); return `${String(d.getDate()).padStart(2,'0')}. ${MDR_KORT[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`; }
+function langDato(iso) { const d = parseDato(iso); return `${d.getDate()}. ${MDR[d.getMonth()]} ${d.getFullYear()}`; }
+
+const gigs = GIGS.slice().sort((a, b) => a.dato.localeCompare(b.dato));
+const kommende = () => gigs.filter(g => parseDato(g.dato) >= iDag());
+
+/* ── Kalenderfil (.ics) så folk kan gemme datoen ── */
+function icsFor(g) {
+  const [y, m, d] = g.dato.split('-');
+  const t = (g.tid || '20.00').replace('.', '');
+  const start = `${y}${m}${d}T${t.padStart(4, '0')}00`;
+  const slutTime = String((parseInt(t.slice(0, 2), 10) + 2) % 24).padStart(2, '0');
+  const slut = `${y}${m}${d}T${slutTime}${t.slice(2)}00`;
+  const linjer = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Trio Milagre//DA',
+    'BEGIN:VEVENT',
+    'UID:' + g.dato + '-' + Math.random().toString(36).slice(2) + '@triomilagre',
+    'DTSTART:' + start, 'DTEND:' + slut,
+    'SUMMARY:Trio Milagre — ' + g.sted,
+    'LOCATION:' + g.sted + ', ' + g.by,
+    'DESCRIPTION:Bossa nova med Trio Milagre',
+    'END:VEVENT', 'END:VCALENDAR'
+  ];
+  const blob = new Blob([linjer.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'triomilagre-' + g.dato + '.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+/* ── Koncertrækker ── */
+function gigRowHTML(g, medHandlinger) {
+  const forbi = parseDato(g.dato) < iDag();
+  const farve = statusFarve(g.status);
+  const handlinger = medHandlinger ? `
+    <span class="gig-actions">
+      <span class="tag" style="border-color:${farve}; color:${farve}">${esc(g.status)}</span>
+      ${g.billetter ? `<a class="btn btn-quiet btn-sm" href="${esc(g.billetter)}" target="_blank" rel="noopener">Billetter</a>` : ''}
+      ${forbi ? '' : `<button type="button" class="btn btn-quiet btn-sm" data-ics="${esc(g.dato)}">Gem i kalender</button>`}
+    </span>` : `<span class="tag" style="border-color:${farve}; color:${farve}">${esc(g.status)}</span>`;
+  return `<div class="gig-row${forbi ? ' is-past' : ''}" id="gig-${esc(g.dato)}">
+      <span class="gig-date">${kortDato(g.dato)}</span>
+      <span class="gig-venue">${esc(g.sted)}</span>
+      <span class="gig-where">${esc(g.by)}${g.tid ? ' · ' + esc(g.tid) : ''}</span>
+      ${handlinger}
+    </div>`;
+}
+
+function tegnNaesteGigs() {
+  const n = kommende().slice(0, 3);
+  $('#nextGigs').innerHTML = n.length
+    ? n.map(g => gigRowHTML(g, false)).join('')
+    : '<p class="note" style="padding:20px 0">Der er ingen datoer i kalenderen lige nu — men vi spiller gerne hos jer.</p>';
+}
+
+function tegnGigListe() {
+  const frem = kommende();
+  const forbi = gigs.filter(g => parseDato(g.dato) < iDag()).reverse();
+  let html = frem.map(g => gigRowHTML(g, true)).join('');
+  if ($('#showPast').checked && forbi.length) {
+    html += `<h2 class="h2-display" style="font-size:22px; margin:48px 0 4px">Afholdte</h2>`
+          + forbi.map(g => gigRowHTML(g, true)).join('');
+  }
+  $('#gigList').innerHTML = html;
+  $('#gigEmpty').style.display = html ? 'none' : 'block';
+}
+
+/* ── Månedskalender ── */
+let calMaaned = (() => { const f = kommende()[0]; return f ? parseDato(f.dato) : iDag(); })();
+
+function tegnKalender() {
+  const aar = calMaaned.getFullYear(), md = calMaaned.getMonth();
+  $('#calTitle').textContent = MDR[md] + ' ' + aar;
+  const foerste = new Date(aar, md, 1);
+  const start = (foerste.getDay() + 6) % 7;           // uge starter mandag
+  const dage = new Date(aar, md + 1, 0).getDate();
+  const idag = iDag();
+
+  let html = ['Man','Tir','Ons','Tor','Fre','Lør','Søn'].map(d => `<div class="cal-dow">${d}</div>`).join('');
+  for (let i = 0; i < start; i++) html += '<div class="cal-cell is-empty"></div>';
+  for (let d = 1; d <= dage; d++) {
+    const iso = `${aar}-${String(md + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const dagsGigs = gigs.filter(g => g.dato === iso);
+    const dato = new Date(aar, md, d);
+    const klasser = ['cal-cell'];
+    if (dato.getTime() === idag.getTime()) klasser.push('is-today');
+    if (dagsGigs.length) { klasser.push('has-gig'); if (dato < idag) klasser.push('is-past'); }
+    if (dagsGigs.length) {
+      const g = dagsGigs[0];
+      html += `<button type="button" class="${klasser.join(' ')}" data-goto="${iso}"
+                 aria-label="${d}. ${MDR[md]}: ${esc(g.sted)}, ${esc(g.by)}"
+                 title="${esc(g.sted)} · ${esc(g.by)}">${d}<span class="cal-dot"></span></button>`;
+    } else {
+      html += `<div class="${klasser.join(' ')}">${d}</div>`;
+    }
+  }
+  $('#calGrid').innerHTML = html;
+}
+
+/* ── Instagram ── */
+function tegnIG(poster, live) {
+  $$('[data-ig-grid]').forEach(gitter => {
+    const antal = parseInt(gitter.dataset.limit, 10) || 6;
+    gitter.innerHTML = poster.slice(0, antal).map((p, i) => `
+      <a class="ig-item" href="${esc(p.link || CONFIG.instagram)}" target="_blank" rel="noopener">
+        <div class="plate" style="background:${MATS[i % MATS.length]}">${slotHTML(p.billede, p.billede ? p.tekst : 'IG-opslag ' + (i + 1), '1 / 1', MATS[i % MATS.length])}</div>
+        <p class="ig-caption">${esc(p.tekst)}</p>
+        <p class="ig-date">${esc(p.dato)}</p>
+      </a>`).join('');
+  });
+  const harBilleder = poster.some(p => p.billede);
+  $('#igNote').textContent = live
+    ? 'Gitteret opdateres automatisk fra Instagram — nye opslag lander øverst, uden at siden skal redigeres.'
+    : harBilleder
+      ? 'Opslagene er lagt ind manuelt. Sæt en feed-adresse ind i CONFIG.instagramFeedUrl, hvis de skal opdatere sig selv.'
+      : 'Gitteret er klar til at blive koblet på Instagram. Indsæt feed-adressen i CONFIG.instagramFeedUrl, eller udfyld listen IG_OPSLAG med billede, tekst og link.';
+}
+
+async function hentInstagram() {
+  tegnIG(IG_OPSLAG, false);
+  if (!CONFIG.instagramFeedUrl) return;
+  try {
+    const svar = await fetch(CONFIG.instagramFeedUrl);
+    if (!svar.ok) throw new Error(svar.status);
+    const data = await svar.json();
+    const raa = Array.isArray(data) ? data : (data.posts || data.data || []);
+    const poster = raa.slice(0, 6).map(p => {
+      const d = new Date(p.timestamp || p.taken_at || Date.now());
+      return {
+        billede: p.thumbnailUrl || p.mediaUrl || p.media_url || p.thumbnail_url || '',
+        link: p.permalink || CONFIG.instagram,
+        tekst: (p.caption || p.prunedCaption || '').split('\n')[0].slice(0, 120) || 'Opslag på Instagram',
+        dato: `${d.getDate()}. ${MDR_KORT[d.getMonth()]}`
+      };
+    });
+    if (poster.length) tegnIG(poster, true);
+  } catch (e) {
+    console.warn('Instagram-feed kunne ikke hentes:', e);
+  }
+}
+
+/* ── Statiske sektioner ── */
+function tegnStatisk() {
+  $('#members').innerHTML = MEMBERS.map((m, i) => `
+    <div>
+      <div class="plate" style="margin: 0 0 20px; background:${MATS[i % MATS.length]}">${slotHTML(m.billede, 'Portræt — ' + m.rolle.toLowerCase(), '4 / 5', MATS[i % MATS.length])}</div>
+      <p style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--color-accent-700); margin:0 0 8px">${esc(m.rolle)}</p>
+      <h2 class="display" style="font-size:28px; line-height:1.2; margin:0">${m.link ? `<a href="${esc(m.link)}" target="_blank" rel="noopener" style="color:inherit; text-decoration-color:var(--color-accent-300)">${esc(m.navn)}</a>` : esc(m.navn)}</h2>
+      <p class="prose" style="font-size:15px; line-height:27px; margin:14px 0 0">${esc(m.bio)}</p>
+    </div>`).join('');
+
+  $('#repertoire').innerHTML = REPERTOIRE.map((r, i) =>
+    `<span class="tag" style="border-color:${RAINBOW[i % RAINBOW.length]}; color:${RAINBOW[i % RAINBOW.length]}">${esc(r)}</span>`).join('');
+
+  $('#videos').innerHTML = VIDEOS.map((v, i) => {
+    const still = v.youtube ? `https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg` : v.billede;
+    const medie = v.youtube
+      ? `<button type="button" class="plate" data-yt="${esc(v.youtube)}" style="display:block; width:100%; padding:0; border-radius:0; border-width:0 0 1px 0; cursor:pointer; background:${MATS[i % MATS.length]}">
+           ${slotHTML(still, 'Afspil ' + v.titel, '16 / 10', MATS[i % MATS.length])}</button>`
+      : `<div class="plate" style="margin:0; border-radius:0; border-width:0 0 1px 0; background:${MATS[i % MATS.length]}">${slotHTML(v.billede, 'Videostill ' + (i + 1), '16 / 10', MATS[i % MATS.length])}</div>`;
+    return `<div class="card" style="padding:0; overflow:hidden">
+        ${medie}
+        <div style="padding:20px 22px 22px">
+          <p class="card-kicker" style="margin:0 0 8px">${esc(v.kicker)}</p>
+          <h2 class="display" style="font-size:24px; line-height:1.2; margin:0">${esc(v.titel)}</h2>
+          <p style="font-size:14px; line-height:24px; margin:12px 0 0; color:color-mix(in srgb, var(--color-text) 72%, transparent)">${esc(v.note)}</p>
+        </div>
+      </div>`;
+  }).join('');
+
+  $('#packages').innerHTML = PACKAGES.map(p => `
+    <div class="card">
+      <p class="card-kicker">${esc(p.kicker)}</p>
+      <h3 style="font-family:var(--font-heading); font-weight:400; font-size:17px; line-height:1.2; margin:0">${esc(p.titel)}</h3>
+      <p class="card-body">${esc(p.body)}</p>
+      <p class="card-meta">${esc(p.meta)}</p>
+    </div>`).join('');
+
+  $$('[data-ig-link]').forEach(a => { a.href = CONFIG.instagram; a.textContent = CONFIG.instagramHandle; });
+  $$('[data-mail-link]').forEach(a => { a.href = 'mailto:' + CONFIG.email; a.textContent = CONFIG.email; });
+  $$('[data-tel-link]').forEach(a => { a.href = 'tel:' + CONFIG.telefon.replace(/\s/g, ''); a.textContent = CONFIG.telefon; });
+}
+
+/* ── Søgemaskiner: koncerterne som strukturerede data ── */
+function tegnJSONLD() {
+  const data = {
+    '@context': 'https://schema.org', '@type': 'MusicGroup', name: 'Trio Milagre',
+    genre: 'Bossa nova', email: CONFIG.email, sameAs: [CONFIG.instagram],
+    event: kommende().map(g => ({
+      '@type': 'MusicEvent',
+      name: 'Trio Milagre — ' + g.sted,
+      startDate: g.dato + (g.tid ? 'T' + g.tid.replace('.', ':') : ''),
+      location: { '@type': 'Place', name: g.sted, address: { '@type': 'PostalAddress', addressLocality: g.by, addressCountry: 'DK' } }
+    }))
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(data);
+  document.head.appendChild(s);
+}
+
+/* ── Navigation mellem siderne ── */
+const RUTER = ['forside', 'trioen', 'lyt', 'koncerter', 'booking'];
+function visSide(navn, scroll) {
+  const side = RUTER.includes(navn) ? navn : 'forside';
+  $$('.page').forEach(p => p.classList.toggle('is-active', p.id === 'page-' + side));
+  $$('.nav a[data-route]').forEach(a => {
+    if (a.dataset.route === side) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+  document.title = side === 'forside'
+    ? 'Trio Milagre — bossa nova til jeres aften'
+    : { trioen: 'Trioen', lyt: 'Lyt & se', koncerter: 'Koncerter', booking: 'Book trioen' }[side] + ' — Trio Milagre';
+  $('#navLinks').classList.remove('is-open');
+  $('#navToggle').setAttribute('aria-expanded', 'false');
+  if (scroll !== false) window.scrollTo(0, 0);
+}
+function ruteFraHash() {
+  const h = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
+  return h || 'forside';
+}
+
+/* ── Bookingformularen ── */
+const PAAKRAEVET = ['tm-name', 'tm-mail', 'tm-date', 'tm-place', 'tm-msg'];
+function valider() {
+  let ok = true;
+  PAAKRAEVET.forEach(id => {
+    const felt = $('#' + id), gruppe = felt.closest('.field');
+    let gyldigt = felt.value.trim() !== '';
+    if (gyldigt && felt.type === 'email') gyldigt = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(felt.value.trim());
+    gruppe.classList.toggle('is-invalid', !gyldigt);
+    if (!gyldigt && ok) { felt.focus(); ok = false; }
+  });
+  return ok;
+}
+function mailtoFallback(data) {
+  const krop = [
+    'Navn: ' + data.navn, 'E-mail: ' + data.email, 'Telefon: ' + (data.telefon || '—'),
+    'Dato: ' + data.dato, 'Sted: ' + data.sted, 'Anledning: ' + data.anledning,
+    'Antal gæster: ' + (data.gaester || '—'), 'Spilletid: ' + data.saet, '', data.besked
+  ].join('\n');
+  location.href = 'mailto:' + CONFIG.email
+    + '?subject=' + encodeURIComponent('Booking ' + data.dato + ' — ' + data.sted)
+    + '&body=' + encodeURIComponent(krop);
+}
+async function sendBooking(e) {
+  e.preventDefault();
+  const form = $('#bookingForm'), status = $('#formStatus'), knap = $('#bookingSubmit');
+  if ($('#tm-company').value) return;                  // robot fanget
+  status.className = 'form-status';
+  if (!valider()) {
+    status.className = 'form-status is-error';
+    status.textContent = 'Der mangler et par felter. De er markeret ovenfor.';
+    return;
+  }
+  const data = Object.fromEntries(new FormData(form).entries());
+  delete data.firma;
+
+  if (!CONFIG.bookingEndpoint) {
+    mailtoFallback(data);
+    status.className = 'form-status is-ok';
+    status.textContent = 'Vi har åbnet en færdigskrevet e-mail til jer — tryk send i jeres mailprogram.';
+    return;
+  }
+  knap.disabled = true; knap.textContent = 'Sender …';
+  try {
+    const svar = await fetch(CONFIG.bookingEndpoint, {
+      method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
+    });
+    if (!svar.ok) throw new Error(svar.status);
+    form.reset();
+    status.className = 'form-status is-ok';
+    status.textContent = 'Tak — vi skriver tilbage inden for et par dage.';
+  } catch (err) {
+    status.className = 'form-status is-error';
+    status.innerHTML = 'Forespørgslen kunne ikke sendes. Skriv i stedet direkte til <a href="mailto:' + esc(CONFIG.email) + '">' + esc(CONFIG.email) + '</a>.';
+  } finally {
+    knap.disabled = false; knap.textContent = 'Send forespørgsel';
+  }
+}
+
+/* ── Start ── */
+tegnStatisk();
+tegnNaesteGigs();
+tegnGigListe();
+tegnKalender();
+tegnJSONLD();
+hentInstagram();
+visSide(ruteFraHash(), false);
+$('#tm-date').min = new Date().toISOString().slice(0, 10);
+
+window.addEventListener('hashchange', () => visSide(ruteFraHash()));
+$('#navToggle').addEventListener('click', () => {
+  const aaben = $('#navLinks').classList.toggle('is-open');
+  $('#navToggle').setAttribute('aria-expanded', String(aaben));
+});
+$('#bookingForm').addEventListener('submit', sendBooking);
+$('#showPast').addEventListener('change', tegnGigListe);
+$('#calPrev').addEventListener('click', () => { calMaaned.setMonth(calMaaned.getMonth() - 1); tegnKalender(); });
+$('#calNext').addEventListener('click', () => { calMaaned.setMonth(calMaaned.getMonth() + 1); tegnKalender(); });
+$('#viewList').addEventListener('click', () => {
+  $('#calWrap').style.display = 'none';
+  $('#viewList').setAttribute('aria-pressed', 'true');
+  $('#viewCal').setAttribute('aria-pressed', 'false');
+});
+$('#viewCal').addEventListener('click', () => {
+  $('#calWrap').style.display = 'block';
+  $('#viewCal').setAttribute('aria-pressed', 'true');
+  $('#viewList').setAttribute('aria-pressed', 'false');
+});
+
+document.addEventListener('click', ev => {
+  const icsKnap = ev.target.closest('[data-ics]');
+  if (icsKnap) {
+    const g = gigs.find(x => x.dato === icsKnap.dataset.ics);
+    if (g) icsFor(g);
+    return;
+  }
+  const dag = ev.target.closest('[data-goto]');
+  if (dag) {
+    const iso = dag.dataset.goto;
+    if (parseDato(iso) < iDag() && !$('#showPast').checked) { $('#showPast').checked = true; tegnGigListe(); }
+    const raekke = $('#gig-' + iso);
+    if (raekke) {
+      raekke.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      raekke.classList.remove('is-flash');
+      void raekke.offsetWidth;
+      raekke.classList.add('is-flash');
+    }
+    return;
+  }
+  const yt = ev.target.closest('[data-yt]');
+  if (yt) {
+    const ramme = document.createElement('iframe');
+    ramme.src = 'https://www.youtube-nocookie.com/embed/' + yt.dataset.yt + '?autoplay=1';
+    ramme.title = 'Video';
+    ramme.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    ramme.allowFullscreen = true;
+    ramme.style.cssText = 'width:100%; aspect-ratio:16/10; border:0; display:block';
+    yt.replaceWith(ramme);
+  }
+});
+</script>
+</body>
+</html>
