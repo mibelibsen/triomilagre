@@ -582,17 +582,11 @@ const CONFIG = {
 
 /* ── Spillejobs ────────────────────────────────────────────────────────
    Tilføj en linje pr. job. dato: 'ÅÅÅÅ-MM-DD'. tid: '20.00' eller ''.
+   slut: '18.00' hvis sluttiden skal vises, ellers udelades feltet.
    status: 'Fri entré' | 'Billetter' | 'Få pladser' | 'Udsolgt' | 'Privat'
    billetter: link til billetsalg, eller '' hvis der ikke er noget.       */
 const GIGS = [
-  { dato: '2026-09-12', tid: '20.00', sted: 'Bartof Café',                 by: 'København',   status: 'Fri entré',  billetter: '' },
-  { dato: '2026-09-27', tid: '19.30', sted: 'Bremen Teater, foyer',        by: 'København',   status: 'Billetter',  billetter: '' },
-  { dato: '2026-10-11', tid: '16.00', sted: 'Kulturhuset Islands Brygge',  by: 'København',   status: 'Billetter',  billetter: '' },
-  { dato: '2026-11-01', tid: '22.00', sted: 'Jazzhus Montmartre, sen scene', by: 'København', status: 'Få pladser', billetter: '' },
-  { dato: '2026-11-22', tid: '20.00', sted: 'Godsbanen',                   by: 'Aarhus',      status: 'Billetter',  billetter: '' },
-  { dato: '2026-12-13', tid: '',      sted: 'Privat julefest',             by: 'Frederiksberg', status: 'Udsolgt',  billetter: '' },
-  { dato: '2026-06-21', tid: '15.00', sted: 'Sommerfest i haven',          by: 'Valby',       status: 'Privat',     billetter: '' },
-  { dato: '2026-08-08', tid: '20.00', sted: 'Bispebjerg Kulturhus',        by: 'København',   status: 'Fri entré',  billetter: '' }
+  { dato: '2026-09-04', tid: '16.00', slut: '18.00', sted: 'Rømers', by: 'Hillerød', status: 'Fri entré', billetter: '' }
 ];
 
 /* ── Musikerne ── billede: sti til foto, fx 'billeder/sang.jpg' ─────── */
@@ -676,7 +670,9 @@ function icsFor(g) {
   const t = (g.tid || '20.00').replace('.', '');
   const start = `${y}${m}${d}T${t.padStart(4, '0')}00`;
   const slutTime = String((parseInt(t.slice(0, 2), 10) + 2) % 24).padStart(2, '0');
-  const slut = `${y}${m}${d}T${slutTime}${t.slice(2)}00`;
+  const slut = g.slut
+    ? `${y}${m}${d}T${g.slut.replace('.', '').padStart(4, '0')}00`
+    : `${y}${m}${d}T${slutTime}${t.slice(2)}00`;
   const linjer = [
     'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Trio Milagre//DA',
     'BEGIN:VEVENT',
@@ -708,7 +704,7 @@ function gigRowHTML(g, medHandlinger) {
   return `<div class="gig-row${forbi ? ' is-past' : ''}" id="gig-${esc(g.dato)}">
       <span class="gig-date">${kortDato(g.dato)}</span>
       <span class="gig-venue">${esc(g.sted)}</span>
-      <span class="gig-where">${esc(g.by)}${g.tid ? ' · ' + esc(g.tid) : ''}</span>
+      <span class="gig-where">${esc(g.by)}${g.tid ? ' · ' + esc(g.tid) + (g.slut ? '–' + esc(g.slut) : '') : ''}</span>
       ${handlinger}
     </div>`;
 }
