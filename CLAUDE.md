@@ -27,6 +27,7 @@ den ligger på GitHub. Et par minutter efter er den live.
 
     index.html          Hele sitet: stil, markup og JavaScript i én fil
     api/instagram.js    Vercel-funktion, der henter Instagram-feedet
+    api/booking.js      Vercel-funktion, der mailer bookingforespørgsler via Resend
 
 Der er ingen build, ingen framework, ingen npm-pakker. Filerne serveres som de
 er. Hold det sådan: ingen `import` af pakker, ingen bundler, ingen
@@ -93,8 +94,12 @@ listen `RUTER`.
   `IG_FEED_URL` (anbefalet, fx behold.so) eller `IG_TOKEN` (Meta-nøgle,
   udløber efter 60 dage). De sættes i Vercel af Michael, **aldrig i koden**.
   Er ingen sat, vises `IG_OPSLAG`, og intet går i stykker.
-- Bookingformularen sender til Formspree, hvis `CONFIG.bookingEndpoint` er sat.
-  Er den tom, åbnes en færdigskrevet mail til `CONFIG.email` i stedet.
+- Bookingformularen sender til `api/booking.js`, som mailer forespørgslen via
+  **Resend** til `st.tristan@gmail.com`. Nøglen `RESEND_API_KEY` og evt.
+  `BOOKING_TIL` / `BOOKING_AFSENDER` sættes i Vercel af Michael, **aldrig i
+  koden**. Afsenderen skal være på et domæne, der er verificeret i Resend.
+  Fejler funktionen, åbner siden en færdigskrevet mail til
+  `CONFIG.bookingMail` i stedet, så ingen forespørgsel går tabt.
 
 ## Faldgruber
 

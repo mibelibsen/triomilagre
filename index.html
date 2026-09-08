@@ -566,13 +566,17 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
    ═══════════════════════════════════════════════════════════════════════ */
 const CONFIG = {
   email: 'booking@triomilagre.com',
+
+  // Her lander bookingforespørgsler. Bruges når mailen skal åbnes lokalt,
+  // fordi serveren ikke kunne sende. Selve afsendelsen sker i api/booking.js.
+  bookingMail: 'st.tristan@gmail.com',
   telefon: '+45 00 00 00 00',
   instagram: 'https://www.instagram.com/trio_milagre/',
   instagramHandle: '@trio_milagre',
 
-  // Booking: indsæt jeres Formspree-adresse (formspree.io → nyt formular-ID).
-  // Er feltet tomt, åbner formularen i stedet en færdigskrevet e-mail.
-  bookingEndpoint: '',
+  // Booking: sidens egen funktion i api/booking.js, som sender mailen via
+  // Resend. Er feltet tomt, åbner formularen i stedet en færdigskrevet e-mail.
+  bookingEndpoint: '/api/booking',
 
   // Instagram: peger på sidens egen funktion i api/instagram.js, som henter
   // feedet ud fra miljøvariablen IG_FEED_URL i Vercel.
@@ -902,7 +906,7 @@ function mailtoFallback(data) {
     'Dato: ' + data.dato, 'Sted: ' + data.sted, 'Anledning: ' + data.anledning,
     'Antal gæster: ' + (data.gaester || '—'), 'Spilletid: ' + data.saet, '', data.besked
   ].join('\n');
-  location.href = 'mailto:' + CONFIG.email
+  location.href = 'mailto:' + CONFIG.bookingMail
     + '?subject=' + encodeURIComponent('Booking ' + data.dato + ' — ' + data.sted)
     + '&body=' + encodeURIComponent(krop);
 }
@@ -928,15 +932,18 @@ async function sendBooking(e) {
   knap.disabled = true; knap.textContent = 'Sender …';
   try {
     const svar = await fetch(CONFIG.bookingEndpoint, {
-      method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
-    if (!svar.ok) throw new Error(svar.status);
+    const resultat = await svar.json().catch(() => ({}));
+    if (!svar.ok || !resultat.ok) throw new Error(resultat.fejl || svar.status);
     form.reset();
     status.className = 'form-status is-ok';
     status.textContent = 'Tak — vi skriver tilbage inden for et par dage.';
   } catch (err) {
     status.className = 'form-status is-error';
-    status.innerHTML = 'Forespørgslen kunne ikke sendes. Skriv i stedet direkte til <a href="mailto:' + esc(CONFIG.email) + '">' + esc(CONFIG.email) + '</a>.';
+    status.innerHTML = 'Forespørgslen kunne ikke sendes. Skriv i stedet direkte til <a href="mailto:' + esc(CONFIG.bookingMail) + '">' + esc(CONFIG.bookingMail) + '</a>.';
   } finally {
     knap.disabled = false; knap.textContent = 'Send forespørgsel';
   }
