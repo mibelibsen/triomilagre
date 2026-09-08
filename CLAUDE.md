@@ -41,7 +41,7 @@ opgaver:
 
 | Liste | Hvad den styrer |
 | --- | --- |
-| `CONFIG` | Mail, telefon, Instagram-link, Formspree-adresse til booking |
+| `CONFIG` | Instagram-link og adressen på bookingfunktionen |
 | `GIGS` | Koncertkalenderen. Én linje pr. koncert |
 | `MEMBERS` | De tre musikere: navn, rolle, foto, link, bio |
 | `VIDEOS` | Videoerne på "Lyt & se". `youtube` er video-id'et fra URL'en |
@@ -98,8 +98,12 @@ listen `RUTER`.
   **Resend** til `st.tristan@gmail.com`. Nøglen `RESEND_API_KEY` og evt.
   `BOOKING_TIL` / `BOOKING_AFSENDER` sættes i Vercel af Michael, **aldrig i
   koden**. Afsenderen skal være på et domæne, der er verificeret i Resend.
-  Fejler funktionen, åbner siden en færdigskrevet mail til
-  `CONFIG.bookingMail` i stedet, så ingen forespørgsel går tabt.
+- **Booking sker kun gennem formularen.** Der vises hverken mail eller
+  telefon til booking på sitet. Sæt dem ikke ind igen, medmindre redaktøren
+  beder om det.
+- Formularen har et skjult robotfelt (`ekstra`). Giv det aldrig et navn som
+  "firma", "telefon" eller lignende: browserens autofyld udfylder det, og så
+  bliver rigtige forespørgsler afvist som robotter.
 
 ## Faldgruber
 
@@ -108,8 +112,6 @@ listen `RUTER`.
 - Tekster i JavaScript-listerne står i enkelte anførselstegn. Skal der en
   apostrof ind (fx `Nara Leão's`), så brug dobbelte anførselstegn om hele
   strengen eller skriv `\'`. Ellers går hele siden i sort.
-- Telefonnummeret i `CONFIG` er en pladsholder (`+45 00 00 00 00`). Spørg
-  redaktøren om det rigtige, før det vises nogen steder.
 - Alt tegnes med `esc()`, så tekst med `<`, `&` og lignende er sikker. Skriv
   ikke HTML ind i listerne. Det bliver vist som tekst.
 - Efter en rettelse i JavaScript: tjek, at der ikke er syntaksfejl. Klip

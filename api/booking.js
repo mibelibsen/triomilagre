@@ -40,9 +40,10 @@ export default async function handler(req, res) {
     try { krop = JSON.parse(krop); } catch { krop = {}; }
   }
 
-  // Robotfælde: feltet er skjult for mennesker. Er det udfyldt, lader vi som
-  // om alt gik godt, så robotten ikke prøver igen.
-  if (tekst(krop.firma)) return res.status(200).json({ ok: true });
+  // Robotfælde: feltet "ekstra" er skjult for mennesker og har et navn,
+  // browsernes autofyld ikke genkender. Er det udfyldt, lader vi som om alt
+  // gik godt, så robotten ikke prøver igen. Kun serveren dømmer her.
+  if (tekst(krop.ekstra)) return res.status(200).json({ ok: true });
 
   const data = {};
   for (const felt of ['navn', 'email', 'telefon', 'dato', 'sted', 'anledning', 'gaester', 'saet', 'besked']) {

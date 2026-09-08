@@ -473,8 +473,6 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
         <h1 class="h1-display" style="font-size: clamp(36px, 4.6vw, 62px)">Skriv til os om <span class="script" style="font-size: 1.22em; color: var(--color-accent)">aftenen</span></h1>
         <p class="lead" style="max-width: 46ch; margin: 28px 0 0">Fortæl kort hvad det er for en anledning, hvor mange I er, og hvor længe vi skal spille. Så sender vi et pristilbud og en repertoireliste inden for et par dage.</p>
         <div class="contact-links">
-          <a data-mail-link></a>
-          <a data-tel-link></a>
           <a data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
         </div>
       </div>
@@ -539,7 +537,7 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
           <textarea class="input" id="tm-msg" name="besked" rows="4" placeholder="Fx: sølvbryllup for 60 gæster, gerne to sæt" required></textarea>
           <p class="field-error" id="err-tm-msg">Skriv et par linjer om aftenen.</p>
         </div>
-        <div class="hp" aria-hidden="true"><label for="tm-company">Firma</label><input id="tm-company" name="firma" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="hp" aria-hidden="true"><label for="tm-ekstra">Lad feltet stå tomt</label><input id="tm-ekstra" name="ekstra" type="text" tabindex="-1" autocomplete="off"></div>
         <button type="submit" class="btn btn-coral btn-block" id="bookingSubmit">Send forespørgsel</button>
         <p class="form-status" id="formStatus" role="status"></p>
       </form>
@@ -565,17 +563,12 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
    1. OPSÆTNING — det er her I retter, når noget skal ændres
    ═══════════════════════════════════════════════════════════════════════ */
 const CONFIG = {
-  email: 'booking@triomilagre.com',
-
-  // Her lander bookingforespørgsler. Bruges når mailen skal åbnes lokalt,
-  // fordi serveren ikke kunne sende. Selve afsendelsen sker i api/booking.js.
-  bookingMail: 'st.tristan@gmail.com',
-  telefon: '+45 00 00 00 00',
   instagram: 'https://www.instagram.com/trio_milagre/',
   instagramHandle: '@trio_milagre',
 
-  // Booking: sidens egen funktion i api/booking.js, som sender mailen via
-  // Resend. Er feltet tomt, åbner formularen i stedet en færdigskrevet e-mail.
+  // Booking sker kun gennem formularen. Den sendes til sidens egen funktion
+  // i api/booking.js, som mailer den videre via Resend. Modtageradressen
+  // ligger i Vercel (BOOKING_TIL), ikke her.
   bookingEndpoint: '/api/booking',
 
   // Instagram: peger på sidens egen funktion i api/instagram.js, som henter
@@ -844,15 +837,13 @@ function tegnStatisk() {
     </div>`).join('');
 
   $$('[data-ig-link]').forEach(a => { a.href = CONFIG.instagram; a.textContent = CONFIG.instagramHandle; });
-  $$('[data-mail-link]').forEach(a => { a.href = 'mailto:' + CONFIG.email; a.textContent = CONFIG.email; });
-  $$('[data-tel-link]').forEach(a => { a.href = 'tel:' + CONFIG.telefon.replace(/\s/g, ''); a.textContent = CONFIG.telefon; });
 }
 
 /* ── Søgemaskiner: koncerterne som strukturerede data ── */
 function tegnJSONLD() {
   const data = {
     '@context': 'https://schema.org', '@type': 'MusicGroup', name: 'Trio Milagre',
-    genre: 'Bossa nova', email: CONFIG.email, sameAs: [CONFIG.instagram],
+    genre: 'Bossa nova', sameAs: [CONFIG.instagram],
     event: kommende().map(g => ({
       '@type': 'MusicEvent',
       name: 'Trio Milagre — ' + g.sted,
@@ -900,20 +891,9 @@ function valider() {
   });
   return ok;
 }
-function mailtoFallback(data) {
-  const krop = [
-    'Navn: ' + data.navn, 'E-mail: ' + data.email, 'Telefon: ' + (data.telefon || '—'),
-    'Dato: ' + data.dato, 'Sted: ' + data.sted, 'Anledning: ' + data.anledning,
-    'Antal gæster: ' + (data.gaester || '—'), 'Spilletid: ' + data.saet, '', data.besked
-  ].join('\n');
-  location.href = 'mailto:' + CONFIG.bookingMail
-    + '?subject=' + encodeURIComponent('Booking ' + data.dato + ' — ' + data.sted)
-    + '&body=' + encodeURIComponent(krop);
-}
 async function sendBooking(e) {
   e.preventDefault();
   const form = $('#bookingForm'), status = $('#formStatus'), knap = $('#bookingSubmit');
-  if ($('#tm-company').value) return;                  // robot fanget
   status.className = 'form-status';
   if (!valider()) {
     status.className = 'form-status is-error';
@@ -921,14 +901,6 @@ async function sendBooking(e) {
     return;
   }
   const data = Object.fromEntries(new FormData(form).entries());
-  delete data.firma;
-
-  if (!CONFIG.bookingEndpoint) {
-    mailtoFallback(data);
-    status.className = 'form-status is-ok';
-    status.textContent = 'Vi har åbnet en færdigskrevet e-mail til jer — tryk send i jeres mailprogram.';
-    return;
-  }
   knap.disabled = true; knap.textContent = 'Sender …';
   try {
     const svar = await fetch(CONFIG.bookingEndpoint, {
@@ -943,7 +915,7 @@ async function sendBooking(e) {
     status.textContent = 'Tak — vi skriver tilbage inden for et par dage.';
   } catch (err) {
     status.className = 'form-status is-error';
-    status.innerHTML = 'Forespørgslen kunne ikke sendes. Skriv i stedet direkte til <a href="mailto:' + esc(CONFIG.bookingMail) + '">' + esc(CONFIG.bookingMail) + '</a>.';
+    status.textContent = 'Forespørgslen kunne ikke sendes lige nu. Prøv igen om lidt.';
   } finally {
     knap.disabled = false; knap.textContent = 'Send forespørgsel';
   }
