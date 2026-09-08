@@ -1,0 +1,121 @@
+# Trio Milagre
+
+Hjemmesiden for Trio Milagre, en bossa nova-trio (sang, bas, klaver). Sitet
+ligger på **triomilagre.com** og bliver deployet automatisk fra `main`.
+
+Skriv kode, kommentarer og commit-beskeder på **dansk**.
+
+## Hvem gør hvad
+
+- **Redaktøren** (fra trioen) ejer indholdet: koncerter, tekster, billeder,
+  videoer. Hun er ikke udvikler og skal ikke røre git, GitHub eller Vercel.
+  Det er dit job.
+- **Michael** (mibelib@gmail.com) ejer driften: GitHub-repoet, Vercel-projektet
+  og domænet. Alt om hosting, miljøvariabler og DNS går til ham.
+
+**Når en ændring er færdig, committer og pusher du selv til `main`.** Uden at
+spørge først. En opgave er ikke afsluttet ved en gemt fil, den er afsluttet, når
+den ligger på GitHub. Et par minutter efter er den live.
+
+- Én commit pr. afsluttet ændring.
+- Commit-beskeden siger, hvad der ændrede sig for besøgende på sitet, ikke
+  hvilke linjer du rettede. Fx `Tilføj koncert på Godsbanen 22. november`.
+- Er du usikker på, om en ændring er rigtig, så vis den og spørg **før** du
+  gemmer.
+
+## Struktur
+
+    index.html          Hele sitet: stil, markup og JavaScript i én fil
+    api/instagram.js    Vercel-funktion, der henter Instagram-feedet
+
+Der er ingen build, ingen framework, ingen npm-pakker. Filerne serveres som de
+er. Hold det sådan: ingen `import` af pakker, ingen bundler, ingen
+transpilering, kun JavaScript og CSS, som browsere forstår i dag.
+
+## Hvor indholdet rettes
+
+Alt indhold, der ændrer sig jævnligt, ligger i **afsnit 1, OPSÆTNING**, øverst
+i `<script>`-blokken i `index.html`. Det er der, du retter i langt de fleste
+opgaver:
+
+| Liste | Hvad den styrer |
+| --- | --- |
+| `CONFIG` | Mail, telefon, Instagram-link, Formspree-adresse til booking |
+| `GIGS` | Koncertkalenderen. Én linje pr. koncert |
+| `MEMBERS` | De tre musikere: navn, rolle, foto, link, bio |
+| `VIDEOS` | Videoerne på "Lyt & se". `youtube` er video-id'et fra URL'en |
+| `PACKAGES` | De tre bookingpakker nederst på bookingsiden |
+| `REPERTOIRE` | Tags under "Hvad vi spiller" |
+| `IG_OPSLAG` | Faste Instagram-opslag, bruges når feedet ikke er koblet på |
+
+Afsnit 2 er den kode, der tegner siden. Rør den kun, når opgaven tydeligt
+handler om, hvordan sitet virker, ikke hvad det siger.
+
+Faste tekster (overskrifter, brødtekst, formularens felter) ligger i selve
+HTML'en. Sitet har fem sider, hver sin `<section class="page">`:
+
+| Side | Id | Adresse |
+| --- | --- | --- |
+| Forside | `page-forside` | `#/` |
+| Trioen | `page-trioen` | `#/trioen` |
+| Lyt & se | `page-lyt` | `#/lyt` |
+| Koncerter | `page-koncerter` | `#/koncerter` |
+| Book | `page-booking` | `#/booking` |
+
+Navigationen er hash-baseret. Der er ingen server-routing, så en ny side
+kræver både en ny `<section class="page">`, et link i `<nav>` og en post i
+listen `RUTER`.
+
+## Regler for koncerter
+
+- `dato` er altid `'ÅÅÅÅ-MM-DD'`. `tid` er `'20.00'` eller `''`.
+- `status` skal være én af: `Fri entré`, `Billetter`, `Få pladser`, `Udsolgt`,
+  `Privat`. Andet får en neutral farve.
+- Afholdte koncerter skjules automatisk og vises kun under "Afholdte", når
+  besøgende slår dem til. Slet dem ikke, medmindre redaktøren beder om det.
+- Forsiden viser selv de tre næste. Der skal ikke rettes noget der.
+- Kalenderen, søgemaskinedata og "Gem i kalender" bygges ud fra `GIGS`. Én
+  rettelse ét sted er nok.
+
+## Billeder og medier
+
+- Læg billeder i en mappe `billeder/` i repoet og henvis med relativ sti,
+  fx `billeder/emma.jpg`. Hold dem under ca. 500 KB. Er de større, så nedskalér
+  først.
+- Tomme `billede: ''` giver en farvet plade med en tekst. Det er med vilje,
+  ikke en fejl.
+- Videoer afspilles via YouTube (`youtube-nocookie.com`). Kun video-id'et,
+  ikke hele URL'en.
+
+## Instagram og booking
+
+- Instagram-feedet hentes af `api/instagram.js` ud fra miljøvariablen
+  `IG_FEED_URL` (anbefalet, fx behold.so) eller `IG_TOKEN` (Meta-nøgle,
+  udløber efter 60 dage). De sættes i Vercel af Michael, **aldrig i koden**.
+  Er ingen sat, vises `IG_OPSLAG`, og intet går i stykker.
+- Bookingformularen sender til Formspree, hvis `CONFIG.bookingEndpoint` er sat.
+  Er den tom, åbnes en færdigskrevet mail til `CONFIG.email` i stedet.
+
+## Faldgruber
+
+- **Repoet er offentligt.** Ingen nøgler, adgangskoder eller privat data i
+  koden. Ikke engang midlertidigt.
+- Tekster i JavaScript-listerne står i enkelte anførselstegn. Skal der en
+  apostrof ind (fx `Nara Leão's`), så brug dobbelte anførselstegn om hele
+  strengen eller skriv `\'`. Ellers går hele siden i sort.
+- Telefonnummeret i `CONFIG` er en pladsholder (`+45 00 00 00 00`). Spørg
+  redaktøren om det rigtige, før det vises nogen steder.
+- Alt tegnes med `esc()`, så tekst med `<`, `&` og lignende er sikker. Skriv
+  ikke HTML ind i listerne. Det bliver vist som tekst.
+- Efter en rettelse i JavaScript: tjek, at der ikke er syntaksfejl. Klip
+  `<script>`-indholdet ud i en fil og kør `node --check` på den, eller åbn
+  siden og se, at listerne stadig tegnes.
+- Vercel deployer ved hvert push til `main`. Det tager 1 til 3 minutter. Hvis
+  ændringen ikke kan ses, så hard-refresh (Ctrl+Shift+R) før du fejlsøger.
+
+## Drift (kun Michael)
+
+- Vercel-team: *mibelibsen's projects*. Projekt: **trio-milagre-dk** (med
+  bindestreg). Domæner: triomilagre.com og www.triomilagre.com.
+- Går sitet i stykker: Vercel, Deployments, forrige grønne deploy, Instant
+  Rollback. Ret derefter fejlen i git.
