@@ -617,12 +617,12 @@ const MEMBERS = [
 
 /* ── Videoer ── youtube: video-ID'et fra URL'en, fx 'dQw4w9WgXcQ' ───── */
 const VIDEOS = [
-  { titel: 'Rainy City',                kicker: '',                   note: 'Fra en baggårdskoncert i Hillerød på kulturnatten.', youtube: 'iq4qmljRZOA', billede: '' },
-  { titel: 'Milagre',                   kicker: '',                   note: 'Fra en af vores altid hyggelige øveaftener.',      youtube: 'FvcDcw85pPQ', billede: '' },
+  { titel: 'Rainy City',                kicker: '',                   note: 'Rainy City er et bluesnummer om længslen efter sin hjemby. For Marckus er det Bergen – byen mellem fjeldene, hvor regnen også føler sig hjemme.', youtube: 'iq4qmljRZOA', billede: '', kursiv: true },
+  { titel: 'Milagre',                   kicker: '',                   note: 'Milagre er en Bossa Nova. Den blev til på en rejse i Sydamerika. Rudolf Steiner foreslår, at man hver dag skal få øje på et mirakel – milagre på portugisisk. Det førte til en diskussion om, hvad et mirakel egentlig er. O que é um milagre?', youtube: 'FvcDcw85pPQ', billede: '', kursiv: true },
   { titel: 'Kys mig nu',                kicker: '',                   note: 'Fra en baggårdskoncert i Hillerød på kulturnatten.', youtube: '4L-dCrcj240', billede: '' },
-  { titel: 'Åben retur',                kicker: '',                   note: 'Fra en af vores altid hyggelige øveaftener.',      youtube: '6FUNcWqW2Uo', billede: '' },
-  { titel: 'Sea of Tranquility',        kicker: '',                   note: '',                                                 youtube: '1_1R7eT7IeY', billede: '', ratio: '16 / 9' },
-  { titel: 'Søster Sol',                kicker: '',                   note: '',                                                 youtube: 'sfipJsT6zyA', billede: '', ratio: '16 / 9' }
+  { titel: 'Åben retur',                kicker: '',                   note: 'Åben retur stammer fra en tid i firserne engang, hvor man stadig skulle bruge pas for at rejse rundt i Europa, og Berlinmuren endnu stod. Det er en romantisk ballade om to elskende, der søger poesien og la dolce vita syd for Alperne – og om at rejse dertil med tog. Du har mit pas i lommen, jeg har dig i min hånd, vi har billetter med åben retur.', youtube: '6FUNcWqW2Uo', billede: '', kursiv: true },
+  { titel: 'Sea of Tranquility',        kicker: '',                   note: 'Sea of Tranquility, eller Stillhedens Hav, er et sted på månen. Sangens fortæller er et menneske med autisme, med få kontaktpunkter til vores verden, men med en stærk søgen efter stilheden. Måske i et hus ved the Sea of Tranquility. You can find me there, but I’ll be anywhere.', youtube: '1_1R7eT7IeY', billede: '', ratio: '16 / 9', kursiv: true },
+  { titel: 'Søster Sol',                kicker: '',                   note: 'Søster Sol er en sang om taknemmeligheden over den lune sol, der jager den svære nat på flugt. Det er ikke til at vide, hvad der var så frygteligt ved den nat, der gik sin egen vej. Men noget må være gået godt, for sangen ender med: „Og jeg ler – dejligt vejr.“', youtube: 'sfipJsT6zyA', billede: '', ratio: '16 / 9', kursiv: true }
 ];
 
 const PACKAGES = [
@@ -843,7 +843,7 @@ function tegnStatisk() {
         <div style="padding:20px 22px 22px">
           <p class="card-kicker" style="margin:0 0 8px">${esc(v.kicker)}</p>
           <h2 class="display" style="font-size:24px; line-height:1.2; margin:0">${esc(v.titel)}</h2>
-          <p style="font-size:14px; line-height:24px; margin:12px 0 0; color:color-mix(in srgb, var(--color-text) 72%, transparent)">${esc(v.note)}</p>
+          <p style="font-size:14px; line-height:24px; margin:12px 0 0; color:color-mix(in srgb, var(--color-text) 72%, transparent)${v.kursiv ? '; font-style:italic' : ''}">${esc(v.note)}</p>
         </div>
       </div>`;
   }).join('');
