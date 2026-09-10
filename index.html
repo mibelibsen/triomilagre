@@ -620,7 +620,8 @@ const VIDEOS = [
   { titel: 'Rainy City',                kicker: '',                   note: 'Fra en baggårdskoncert i Hillerød på kulturnatten.', youtube: 'iq4qmljRZOA', billede: '' },
   { titel: 'Milagre',                   kicker: '',                   note: 'Fra en af vores altid hyggelige øveaftener.',      youtube: 'FvcDcw85pPQ', billede: '' },
   { titel: 'Kys mig nu',                kicker: '',                   note: 'Fra en baggårdskoncert i Hillerød på kulturnatten.', youtube: '4L-dCrcj240', billede: '' },
-  { titel: 'Åben retur',                kicker: '',                   note: 'Fra en af vores altid hyggelige øveaftener.',      youtube: '6FUNcWqW2Uo', billede: '' }
+  { titel: 'Åben retur',                kicker: '',                   note: 'Fra en af vores altid hyggelige øveaftener.',      youtube: '6FUNcWqW2Uo', billede: '' },
+  { titel: 'Sea of Tranquility',        kicker: '',                   note: '',                                                 youtube: '1_1R7eT7IeY', billede: '', ratio: '16 / 9' }
 ];
 
 const PACKAGES = [
@@ -831,10 +832,11 @@ function tegnStatisk() {
 
   $('#videos').innerHTML = VIDEOS.map((v, i) => {
     const still = v.youtube ? `https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg` : v.billede;
+    const ratio = v.ratio || '9 / 16';
     const medie = v.youtube
       ? `<button type="button" class="plate" data-yt="${esc(v.youtube)}" style="display:block; width:100%; padding:0; border-radius:0; border-width:0 0 1px 0; cursor:pointer; background:${MATS[i % MATS.length]}">
-           ${slotHTML(still, 'Afspil ' + v.titel, '9 / 16', MATS[i % MATS.length])}</button>`
-      : `<div class="plate" style="margin:0; border-radius:0; border-width:0 0 1px 0; background:${MATS[i % MATS.length]}">${slotHTML(v.billede, 'Videostill ' + (i + 1), '9 / 16', MATS[i % MATS.length])}</div>`;
+           ${slotHTML(still, 'Afspil ' + v.titel, ratio, MATS[i % MATS.length])}</button>`
+      : `<div class="plate" style="margin:0; border-radius:0; border-width:0 0 1px 0; background:${MATS[i % MATS.length]}">${slotHTML(v.billede, 'Videostill ' + (i + 1), ratio, MATS[i % MATS.length])}</div>`;
     return `<div class="card" style="padding:0; overflow:hidden">
         ${medie}
         <div style="padding:20px 22px 22px">
