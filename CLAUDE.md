@@ -24,6 +24,10 @@ den ligger på GitHub. Et par minutter efter er den live.
   merge eller rebase din gren oven på `origin/main`, og push til `main`.
   En ændring, der kun ligger på en anden gren, er ikke afsluttet, og
   besøgende ser den ikke.
+- **Eneste undtagelse: et preview.** Beder redaktøren eller Michael
+  udtrykkeligt om et preview, før noget lægges på main, så lav en gren og
+  push den i stedet. Fortæl dem, at ændringen ligger på en gren, og at du
+  lægger den på `main`, når de siger go.
 - Én commit pr. afsluttet ændring.
 - Commit-beskeden siger, hvad der ændrede sig for besøgende på sitet, ikke
   hvilke linjer du rettede. Fx `Tilføj koncert på Godsbanen 22. november`.
