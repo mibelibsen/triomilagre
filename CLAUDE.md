@@ -17,6 +17,13 @@ Skriv kode, kommentarer og commit-beskeder på **dansk**.
 spørge først. En opgave er ikke afsluttet ved en gemt fil, den er afsluttet, når
 den ligger på GitHub. Et par minutter efter er den live.
 
+- **Alt skal ende på `main`.** Vercel bygger kun `main` til triomilagre.com.
+  Arbejder du i en Claude Code-session, der er sat op med sin egen gren
+  (fx `claude/...`), har du repo-ejerens udtrykkelige lov til at lægge dine
+  commits på `main`, når de er færdige og testede: `git fetch origin main`,
+  merge eller rebase din gren oven på `origin/main`, og push til `main`.
+  En ændring, der kun ligger på en anden gren, er ikke afsluttet, og
+  besøgende ser den ikke.
 - Én commit pr. afsluttet ændring.
 - Commit-beskeden siger, hvad der ændrede sig for besøgende på sitet, ikke
   hvilke linjer du rettede. Fx `Tilføj koncert på Godsbanen 22. november`.
