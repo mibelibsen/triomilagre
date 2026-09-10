@@ -57,7 +57,6 @@ opgaver:
 | `MEMBERS` | De tre musikere: navn, rolle, foto, link, bio |
 | `VIDEOS` | Videoerne på "Lyt & se". `youtube` er video-id'et fra URL'en |
 | `PACKAGES` | De tre bookingpakker nederst på bookingsiden |
-| `REPERTOIRE` | Tags under "Hvad vi spiller" |
 | `IG_OPSLAG` | Faste Instagram-opslag, bruges når feedet ikke er koblet på |
 
 Afsnit 2 er den kode, der tegner siden. Rør den kun, når opgaven tydeligt

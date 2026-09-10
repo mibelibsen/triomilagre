@@ -401,16 +401,9 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
       </div>
     </section>
     <div id="members" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 42px 40px; padding-bottom: 70px"></div>
-    <section class="rule-top" style="padding: 56px 0 56px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px clamp(28px, 6vw, 72px)">
+    <section class="rule-top" style="padding: 56px 0 84px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px clamp(28px, 6vw, 72px)">
       <h2 class="h2-display" style="font-size: clamp(28px, 3vw, 38px)">Musikken</h2>
       <p class="lead">Vi spiller helst akustisk – med et piano, hvis rummet har et – og ellers med så lidt forstærkning som muligt. Vi tilpasser os lokalet, ikke omvendt. En gang imellem tager vi en trommeslager med, og så optræder vi som Trio Milagre med venner.</p>
-    </section>
-    <section class="rule-top" style="padding: 56px 0 84px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px clamp(28px, 6vw, 72px)">
-      <h2 class="h2-display" style="font-size: clamp(28px, 3vw, 38px)">Hvad vi spiller</h2>
-      <div>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px" id="repertoire"></div>
-        <p class="lead" style="margin: 26px 0 0; max-width: 56ch">Fuld repertoireliste sendes gerne på forhånd — og vi lærer gerne et enkelt nummer, hvis der er en sang, aftenen ikke kan undvære.</p>
-      </div>
     </section>
   </section>
 
@@ -629,8 +622,6 @@ const PACKAGES = [
   { kicker: 'Koncert',         titel: 'Spillested',     body: 'Fuldt program med fortællinger mellem numrene.',           meta: '60–90 min · eget anlæg' }
 ];
 
-const REPERTOIRE = ['Jobim', 'João Gilberto', 'Baden Powell', 'Nara Leão', 'Vinícius de Moraes', 'Elis Regina', 'Samba-canção', 'Danske sange'];
-
 /* ── Instagram-opslag ──────────────────────────────────────────────────
    Bruges når CONFIG.instagramFeedUrl står tom. Læg billedet i fx
    'billeder/instagram/', og sæt link til selve opslaget på Instagram.   */
@@ -649,8 +640,7 @@ const IG_OPSLAG = [
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const MATS = ['var(--color-accent-100)', 'var(--spice-coral-100)', 'var(--spice-green-100)', 'var(--spice-blue-100)', 'var(--spice-yellow-100)', 'var(--spice-purple-100)', 'var(--spice-teal-100)'];
-const RAINBOW = ['var(--spice-coral-700)', 'var(--spice-yellow-700)', 'var(--spice-green-700)', 'var(--spice-teal-700)', 'var(--spice-blue-700)', 'var(--spice-purple-700)'];
-const MDR = ['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
+const MDR =['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
 const MDR_KORT = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
 
 function esc(s) {
@@ -825,9 +815,6 @@ function tegnStatisk() {
       <h2 class="display" style="font-size:28px; line-height:1.2; margin:0">${m.link ? `<a href="${esc(m.link)}" target="_blank" rel="noopener" style="color:inherit; text-decoration-color:var(--color-accent-300)">${esc(m.navn)}</a>` : esc(m.navn)}</h2>
       <p class="prose" style="font-size:15px; line-height:27px; margin:14px 0 0">${esc(m.bio)}</p>
     </div>`).join('');
-
-  $('#repertoire').innerHTML = REPERTOIRE.map((r, i) =>
-    `<span class="tag" style="border-color:${RAINBOW[i % RAINBOW.length]}; color:${RAINBOW[i % RAINBOW.length]}">${esc(r)}</span>`).join('');
 
   $('#videos').innerHTML = VIDEOS.map((v, i) => {
     const still = v.youtube ? `https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg` : v.billede;
