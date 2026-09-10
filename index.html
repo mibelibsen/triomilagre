@@ -924,6 +924,17 @@ async function sendBooking(e) {
   }
 }
 
+/* ── Manglende billeder ── viser en plade med teksten i stedet for et
+   ødelagt billedikon, hvis filen ikke findes i repoet. */
+function billedeMangler(img) {
+  const label = document.createElement('span');
+  label.className = 'slot-label';
+  label.textContent = (img.alt || 'Billede') + ' (filen mangler i mappen billeder/)';
+  img.replaceWith(label);
+}
+document.addEventListener('error', ev => { if (ev.target.tagName === 'IMG') billedeMangler(ev.target); }, true);
+$$('img').forEach(img => { if (img.complete && img.naturalWidth === 0 && img.src) billedeMangler(img); });
+
 /* ── Start ── */
 tegnStatisk();
 tegnNaesteGigs();

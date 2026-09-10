@@ -80,9 +80,24 @@ listen `RUTER`.
 
 ## Billeder og medier
 
-- Læg billeder i en mappe `billeder/` i repoet og henvis med relativ sti,
+- Læg billeder i mappen `billeder/` i repoet og henvis med relativ sti,
   fx `billeder/emma.jpg`. Hold dem under ca. 500 KB. Er de større, så nedskalér
   først.
+- **Et billede er ikke lagt ind, før selve filen ligger i repoet.** Et
+  `<img src="billeder/...">` alene giver et ødelagt billede på sitet. Sådan
+  gør du:
+  1. Bed redaktøren vedhæfte billedet i chatten, hvis det ikke allerede er
+     der. Uploadede filer ligger typisk under `/root/.claude/uploads/` eller
+     den sti, systemet oplyser.
+  2. Kopiér filen ind i `billeder/` med et kort navn med små bogstaver og
+     uden mellemrum og æøå, fx `billeder/om-trioen.jpg`.
+  3. Tjek med `ls billeder/`, at filen er der, og med `git status`, at den
+     er med i commit'et sammen med rettelsen i `index.html`.
+  4. Push. Kan du ikke få fat i filen, så sig det til redaktøren i stedet for
+     at henvise til en fil, der ikke findes.
+- Findes en henvist fil ikke, viser sitet en farvet plade med teksten
+  "(filen mangler i mappen billeder/)". Ser du den på sitet, er det trin 1
+  til 3, der er sprunget over.
 - Tomme `billede: ''` giver en farvet plade med en tekst. Det er med vilje,
   ikke en fejl.
 - Videoer afspilles via YouTube (`youtube-nocookie.com`). Kun video-id'et,
