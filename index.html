@@ -833,8 +833,8 @@ function tegnStatisk() {
     const still = v.youtube ? `https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg` : v.billede;
     const medie = v.youtube
       ? `<button type="button" class="plate" data-yt="${esc(v.youtube)}" style="display:block; width:100%; padding:0; border-radius:0; border-width:0 0 1px 0; cursor:pointer; background:${MATS[i % MATS.length]}">
-           ${slotHTML(still, 'Afspil ' + v.titel, '16 / 10', MATS[i % MATS.length])}</button>`
-      : `<div class="plate" style="margin:0; border-radius:0; border-width:0 0 1px 0; background:${MATS[i % MATS.length]}">${slotHTML(v.billede, 'Videostill ' + (i + 1), '16 / 10', MATS[i % MATS.length])}</div>`;
+           ${slotHTML(still, 'Afspil ' + v.titel, '9 / 16', MATS[i % MATS.length])}</button>`
+      : `<div class="plate" style="margin:0; border-radius:0; border-width:0 0 1px 0; background:${MATS[i % MATS.length]}">${slotHTML(v.billede, 'Videostill ' + (i + 1), '9 / 16', MATS[i % MATS.length])}</div>`;
     return `<div class="card" style="padding:0; overflow:hidden">
         ${medie}
         <div style="padding:20px 22px 22px">
