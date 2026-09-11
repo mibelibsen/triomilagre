@@ -140,12 +140,18 @@ select.input { appearance: none; background-image: url("data:image/svg+xml;utf8,
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* — kort, tags, plader — */
-.card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-divider); }
+.card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-divider); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.08); border-color: var(--color-accent-300); }
 .card-kicker { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent); margin: 0; }
 .card-body { margin: 0; font-size: 13px; opacity: .8; flex: 1; }
 .card-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; color: color-mix(in srgb, var(--color-text) 50%, transparent); margin: 0; }
 .tag { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: .02em; padding: 3px 10px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
-.plate { filter: sepia(.22) saturate(.82) contrast(1.05); border: 6px solid var(--color-surface); outline: 1px solid var(--color-divider); }
+.plate { filter: sepia(.22) saturate(.82) contrast(1.05); border: 6px solid var(--color-surface); outline: 1px solid var(--color-divider); transition: transform .25s ease; }
+.plate:hover { transform: translateY(-3px); }
+
+/* — blødt fremkald ved scroll — */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* Billedpladser: viser en pæn markering indtil et rigtigt foto sættes ind */
 .slot { position: relative; width: 100%; display: block; background: var(--spice-coral-100); overflow: hidden; }
@@ -222,8 +228,6 @@ main { flex: 1; width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 
 /* — instagram — */
 .ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
 .ig-item { text-decoration: none; color: inherit; display: block; }
-.ig-item .plate { transition: transform .2s ease; }
-.ig-item:hover .plate { transform: translateY(-3px); }
 .ig-caption { font-size: 14px; line-height: 22px; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .ig-date { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-feature-settings: 'tnum' 1; margin: 6px 0 0; color: var(--color-accent-700); }
 .note { font-size: 13px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 62%, transparent); }
@@ -1149,6 +1153,18 @@ function billedeMangler(img) {
 }
 document.addEventListener('error', ev => { if (ev.target.tagName === 'IMG') billedeMangler(ev.target); }, true);
 $$('img').forEach(img => { if (img.complete && img.naturalWidth === 0 && img.src) billedeMangler(img); });
+
+/* ── Blødt fremkald ── afsnittene på hver side toner blidt ind, når de
+   ruller ind i billedet. */
+const fremkald = new IntersectionObserver((poster) => {
+  poster.forEach(post => {
+    if (post.isIntersecting) {
+      post.target.classList.add('is-visible');
+      fremkald.unobserve(post.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+$$('.page > *').forEach(el => { el.classList.add('reveal'); fremkald.observe(el); });
 
 /* ── Start ── */
 tegnStatisk();
