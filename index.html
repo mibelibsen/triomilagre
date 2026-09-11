@@ -901,7 +901,7 @@ function icsFor(g) {
     'DTSTART:' + start, 'DTEND:' + slut,
     'SUMMARY:Trio Milagre — ' + g.sted,
     'LOCATION:' + g.sted + ', ' + g.by,
-    'DESCRIPTION:Bossa nova med Trio Milagre',
+    'DESCRIPTION:Soul, jazz og bossanova med Trio Milagre',
     'END:VEVENT', 'END:VCALENDAR'
   ];
   const blob = new Blob([linjer.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
@@ -1065,7 +1065,7 @@ function tegnStatisk() {
 function tegnJSONLD() {
   const data = {
     '@context': 'https://schema.org', '@type': 'MusicGroup', name: 'Trio Milagre',
-    genre: 'Bossa nova', sameAs: [CONFIG.instagram],
+    genre: 'Soul, jazz og bossanova', sameAs: [CONFIG.instagram],
     event: kommende().map(g => ({
       '@type': 'MusicEvent',
       name: 'Trio Milagre — ' + g.sted,
