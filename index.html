@@ -425,7 +425,7 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
       <h1 class="h1-display">Musikken <span class="script" style="font-size: 1.2em; color: var(--color-accent)">først</span></h1>
       <p class="lead" style="margin: 30px 0 0">Her er nogle optagelser fra vores altid hyggelige øvere, og fra nogle af vores altid ligeså hyggelige optrædener.</p>
     </section>
-    <div id="videos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding-bottom: 56px"></div>
+    <div id="videos" style="display: flex; flex-direction: column; gap: 24px; padding-bottom: 56px"></div>
     <section class="rule-top" style="padding: 48px 0 56px">
       <h2 class="h2-display" style="font-size: clamp(26px, 2.6vw, 32px); margin-bottom: 28px">Nogle <span class="script" style="font-size: 1.2em; color: var(--color-accent)">tekster</span></h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px 32px; align-items: start">
@@ -1043,7 +1043,7 @@ function tegnStatisk() {
       <p class="prose" style="font-size:15px; line-height:27px; margin:14px 0 0">${esc(m.bio)}</p>
     </div>`).join('');
 
-  $('#videos').innerHTML = VIDEOS.map((v, i) => {
+  const videoKort = (v, i) => {
     const still = v.youtube ? `https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg` : v.billede;
     const ratio = v.ratio || '9 / 16';
     const medie = v.youtube
@@ -1058,7 +1058,15 @@ function tegnStatisk() {
           <p style="font-size:14px; line-height:24px; margin:12px 0 0; color:color-mix(in srgb, var(--color-text) 72%, transparent)${v.kursiv ? '; font-style:italic' : ''}">${esc(v.note)}</p>
         </div>
       </div>`;
-  }).join('');
+  };
+  /* De stående (lodrette) videoer og de liggende grupperes hver for sig,
+     så de ikke blander sig i samme række med ujævn højde. */
+  const lodrette = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => (v.ratio || '9 / 16') === '9 / 16');
+  const liggende = VIDEOS.map((v, i) => ({ v, i })).filter(({ v }) => (v.ratio || '9 / 16') !== '9 / 16');
+  const gruppe = (liste, minBredde) => liste.length
+    ? `<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(${minBredde}px, 1fr)); gap:24px">${liste.map(({ v, i }) => videoKort(v, i)).join('')}</div>`
+    : '';
+  $('#videos').innerHTML = gruppe(lodrette, 220) + gruppe(liggende, 280);
 
   $('#packages').innerHTML = PACKAGES.map(p => `
     <div class="card">
