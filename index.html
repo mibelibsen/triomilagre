@@ -3,12 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trio Milagre — bossa nova til jeres aften</title>
-<meta name="description" content="Trio Milagre spiller brasiliansk bossa nova akustisk: sang, bas og klaver. Se kalenderen over koncerter og book trioen til reception, middag eller koncert.">
-<meta property="og:title" content="Trio Milagre">
-<meta property="og:description" content="Tre musikere, én bølge af brasiliansk ro. Se koncertkalenderen og book trioen.">
+<title>Trio Milagre — soul- og jazztrio til lounge, middag og reception</title>
+<meta name="description" content="Trio Milagre spiller soul-influeret jazz, bossanova og pop med sang, kontrabas og klaver. Akustisk eller let forstærket til lounge, middage, receptioner og koncerter. Se kalenderen og book trioen.">
+<link rel="canonical" href="https://triomilagre.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Trio Milagre">
+<meta property="og:site_name" content="Trio Milagre">
+<meta property="og:title" content="Trio Milagre — soul, jazz og bossanova">
+<meta property="og:description" content="Tre stemmer, én puls. Soul-influeret jazz, bossanova og pop til lounge, middage og receptioner. Se kalenderen og book trioen.">
+<meta property="og:url" content="https://triomilagre.com/">
+<meta property="og:image" content="https://triomilagre.com/billeder/om-trioen.webp">
+<meta property="og:image:alt" content="Trio Milagre foran en gul mur">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trio Milagre — soul, jazz og bossanova">
+<meta name="twitter:description" content="Soul-influeret jazz, bossanova og pop til lounge, middage og receptioner.">
+<meta name="twitter:image" content="https://triomilagre.com/billeder/om-trioen.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@400&display=swap" rel="stylesheet">
@@ -221,12 +232,6 @@ main { flex: 1; width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 
 }
 .quote-block blockquote { font-family: var(--font-heading); font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.28; max-width: 34ch; margin: 0; text-indent: -.34em; }
 .quote-block figcaption { font-size: 15px; line-height: 26px; margin: 32px 0 0; color: var(--spice-coral-300); }
-
-/* — instagram — */
-.ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
-.ig-item { text-decoration: none; color: inherit; display: block; }
-.ig-caption { font-size: 14px; line-height: 22px; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.ig-date { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-feature-settings: 'tnum' 1; margin: 6px 0 0; color: var(--color-accent-700); }
 .note { font-size: 13px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 62%, transparent); }
 
 /* — koncertliste — */
@@ -363,18 +368,6 @@ footer { border-top: 0.5px solid var(--color-hairline); background: var(--spice-
         <p class="prose">Teksterne spiller en væsentlig rolle i vores musik og kredser ofte om eftertænksomme temaer og perspektiver, som ikke altid finder et musikalsk udtryk. Mange af vores sange er skrevet på engelsk. Som Marckus siger: &quot;Jeg er jo ikke dansk, så hvorfor skulle jeg synge på dansk?&quot; (Han er fra Norge.)</p>
       </div>
     </div>
-
-    <section class="rule-top" style="padding: 56px 0 70px">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Seneste opslag</span>
-          <h2 class="h2-display">Fra <span class="script" style="font-size: 1.2em; color: var(--color-accent)">Instagram</span> (kommer snart)</h2>
-        </div>
-        <a class="btn btn-purple" data-ig-link target="_blank" rel="noopener">@trio_milagre</a>
-      </div>
-      <div class="ig-grid" data-ig-grid data-limit="6" aria-live="polite"></div>
-      <p class="note" style="margin: 24px 0 0" id="igNote"></p>
-    </section>
 
     <section class="rule-top" style="padding: 56px 0 84px">
       <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px">
@@ -803,12 +796,7 @@ const CONFIG = {
   // Booking sker kun gennem formularen. Den sendes til sidens egen funktion
   // i api/booking.js, som mailer den videre via Resend. Modtageradressen
   // ligger i Vercel (BOOKING_TIL), ikke her.
-  bookingEndpoint: '/api/booking',
-
-  // Instagram: peger på sidens egen funktion i api/instagram.js, som henter
-  // feedet ud fra miljøvariablen IG_FEED_URL i Vercel.
-  // Er IG_FEED_URL ikke sat, vises opslagene fra listen IG_OPSLAG nedenfor.
-  instagramFeedUrl: '/api/instagram'
+  bookingEndpoint: '/api/booking'
 };
 
 /* ── Spillejobs ────────────────────────────────────────────────────────
@@ -847,18 +835,6 @@ const PACKAGES = [
   { kicker: 'Kort sæt',        titel: 'Reception',      body: '45 minutter afdæmpet jazz-soul med et strejf af bossa under ankomst og velkomst.', meta: 'Fra 45 min · 3 musikere' },
   { kicker: 'Aftenen igennem', titel: 'Middag & fest',  body: 'To sæt à 45 minutter med pause, tilpasset talerne.',       meta: '2 × 45 min · pause efter aftale' },
   { kicker: 'Koncert',         titel: 'Spillested',     body: 'Fuldt program med fortællinger mellem numrene.',           meta: '60–90 min · eget anlæg' }
-];
-
-/* ── Instagram-opslag ──────────────────────────────────────────────────
-   Bruges når CONFIG.instagramFeedUrl står tom. Læg billedet i fx
-   'billeder/instagram/', og sæt link til selve opslaget på Instagram.   */
-const IG_OPSLAG = [
-  { tekst: 'Prøve i gården, inden solen gik ned.', dato: '28. aug', billede: '', link: '' },
-  { tekst: 'Corcovado, tredje gang i dag.',        dato: '21. aug', billede: '', link: '' },
-  { tekst: 'Nye strenge, gammel bas.',             dato: '14. aug', billede: '', link: '' },
-  { tekst: 'Tak til alle jer på Bispebjerg.',      dato: '6. aug',  billede: '', link: '' },
-  { tekst: 'Sætliste skrevet på en serviet.',      dato: '30. jul', billede: '', link: '' },
-  { tekst: 'Nodestativ i modlys.',                   dato: '19. jul', billede: '', link: '' }
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -991,48 +967,6 @@ function tegnKalender() {
   $('#calGrid').innerHTML = html;
 }
 
-/* ── Instagram ── */
-function tegnIG(poster, live) {
-  $$('[data-ig-grid]').forEach(gitter => {
-    const antal = parseInt(gitter.dataset.limit, 10) || 6;
-    gitter.innerHTML = poster.slice(0, antal).map((p, i) => `
-      <a class="ig-item" href="${esc(p.link || CONFIG.instagram)}" target="_blank" rel="noopener">
-        <div class="plate" style="background:${MATS[i % MATS.length]}">${slotHTML(p.billede, p.billede ? p.tekst : 'IG-opslag ' + (i + 1), '1 / 1', MATS[i % MATS.length])}</div>
-        <p class="ig-caption">${esc(p.tekst)}</p>
-        <p class="ig-date">${esc(p.dato)}</p>
-      </a>`).join('');
-  });
-  const harBilleder = poster.some(p => p.billede);
-  $('#igNote').textContent = live
-    ? 'Gitteret opdateres automatisk fra Instagram — nye opslag lander øverst, uden at siden skal redigeres.'
-    : harBilleder
-      ? 'Opslagene er lagt ind manuelt. Sæt en feed-adresse ind i CONFIG.instagramFeedUrl, hvis de skal opdatere sig selv.'
-      : 'Gitteret er klar til at blive koblet på Instagram. Indsæt feed-adressen i CONFIG.instagramFeedUrl, eller udfyld listen IG_OPSLAG med billede, tekst og link.';
-}
-
-async function hentInstagram() {
-  tegnIG(IG_OPSLAG, false);
-  if (!CONFIG.instagramFeedUrl) return;
-  try {
-    const svar = await fetch(CONFIG.instagramFeedUrl);
-    if (!svar.ok) throw new Error(svar.status);
-    const data = await svar.json();
-    const raa = Array.isArray(data) ? data : (data.posts || data.data || []);
-    const poster = raa.slice(0, 6).map(p => {
-      const d = new Date(p.timestamp || p.taken_at || Date.now());
-      return {
-        billede: p.thumbnailUrl || p.mediaUrl || p.media_url || p.thumbnail_url || '',
-        link: p.permalink || CONFIG.instagram,
-        tekst: (p.caption || p.prunedCaption || '').split('\n')[0].slice(0, 120) || 'Opslag på Instagram',
-        dato: `${d.getDate()}. ${MDR_KORT[d.getMonth()]}`
-      };
-    });
-    if (poster.length) tegnIG(poster, true);
-  } catch (e) {
-    console.warn('Instagram-feed kunne ikke hentes:', e);
-  }
-}
-
 /* ── Statiske sektioner ── */
 function tegnStatisk() {
   $('#members').innerHTML = MEMBERS.map((m, i) => `
@@ -1083,7 +1017,18 @@ function tegnStatisk() {
 function tegnJSONLD() {
   const data = {
     '@context': 'https://schema.org', '@type': 'MusicGroup', name: 'Trio Milagre',
-    genre: 'Soul, jazz og bossanova', sameAs: [CONFIG.instagram],
+    url: 'https://triomilagre.com/',
+    description: 'Trio Milagre spiller soul-influeret jazz, bossanova og pop med sang, kontrabas og klaver — akustisk eller let forstærket til lounge, middage, receptioner og koncerter.',
+    genre: ['Jazz', 'Soul', 'Bossanova', 'Latin jazz', 'Pop'],
+    sameAs: [CONFIG.instagram],
+    image: 'https://triomilagre.com/billeder/om-trioen.webp',
+    numberOfMusicians: 3,
+    member: MEMBERS.map(m => ({ '@type': 'Person', name: m.navn, roleName: m.rolle })),
+    areaServed: { '@type': 'Country', name: 'Danmark' },
+    makesOffer: PACKAGES.map(pk => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: 'Livemusik — ' + pk.titel, description: pk.body, serviceType: 'Jazz- og soulmusik til arrangementer' }
+    })),
     event: kommende().map(g => ({
       '@type': 'MusicEvent',
       name: 'Trio Milagre — ' + g.sted,
@@ -1107,7 +1052,7 @@ function visSide(navn, scroll) {
     else a.removeAttribute('aria-current');
   });
   document.title = side === 'forside'
-    ? 'Trio Milagre — bossa nova til jeres aften'
+    ? 'Trio Milagre — soul- og jazztrio til lounge, middag og reception'
     : { trioen: 'Trioen', lyt: 'Lyt & se', koncerter: 'Koncerter', booking: 'Book trioen' }[side] + ' — Trio Milagre';
   $('#navLinks').classList.remove('is-open');
   $('#navToggle').setAttribute('aria-expanded', 'false');
@@ -1178,7 +1123,6 @@ tegnNaesteGigs();
 tegnGigListe();
 tegnKalender();
 tegnJSONLD();
-hentInstagram();
 visSide(ruteFraHash(), false);
 $('#tm-date').min = new Date().toISOString().slice(0, 10);
 

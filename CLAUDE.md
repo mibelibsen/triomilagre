@@ -37,8 +37,11 @@ den ligger på GitHub. Et par minutter efter er den live.
 ## Struktur
 
     index.html          Hele sitet: stil, markup og JavaScript i én fil
-    api/instagram.js    Vercel-funktion, der henter Instagram-feedet
+    robots.txt          Giver søgemaskiner lov til at indeksere, peger på sitemap
+    sitemap.xml         Sitets adresse til søgemaskinerne
+    llms.txt            Kort resumé af trioen til AI-assistenter
     api/booking.js      Vercel-funktion, der mailer bookingforespørgsler via Resend
+    api/instagram.js    Ubrugt — Instagram-feedet er taget af sitet
 
 Der er ingen build, ingen framework, ingen npm-pakker. Filerne serveres som de
 er. Hold det sådan: ingen `import` af pakker, ingen bundler, ingen
@@ -57,7 +60,6 @@ opgaver:
 | `MEMBERS` | De tre musikere: navn, rolle, foto, link, bio |
 | `VIDEOS` | Videoerne på "Lyt & se". `youtube` er video-id'et fra URL'en |
 | `PACKAGES` | De tre bookingpakker nederst på bookingsiden |
-| `IG_OPSLAG` | Faste Instagram-opslag, bruges når feedet ikke er koblet på |
 
 Afsnit 2 er den kode, der tegner siden. Rør den kun, når opgaven tydeligt
 handler om, hvordan sitet virker, ikke hvad det siger.
@@ -115,10 +117,10 @@ listen `RUTER`.
 
 ## Instagram og booking
 
-- Instagram-feedet hentes af `api/instagram.js` ud fra miljøvariablen
-  `IG_FEED_URL` (anbefalet, fx behold.so) eller `IG_TOKEN` (Meta-nøgle,
-  udløber efter 60 dage). De sættes i Vercel af Michael, **aldrig i koden**.
-  Er ingen sat, vises `IG_OPSLAG`, og intet går i stykker.
+- **Instagram-opslagene er taget af sitet.** Gitteret på forsiden, listen
+  `IG_OPSLAG` og koden bag er fjernet. Der er kun links tilbage til profilen.
+  `api/instagram.js` ligger stadig i repoet, men bruges ikke. Skal feedet
+  tilbage, ligger den gamle kode i git-historikken.
 - Bookingformularen sender til `api/booking.js`, som mailer forespørgslen via
   **Resend** til `st.tristan@gmail.com`. Nøglen `RESEND_API_KEY` og evt.
   `BOOKING_TIL` / `BOOKING_AFSENDER` sættes i Vercel af Michael, **aldrig i

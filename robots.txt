@@ -1,0 +1,5 @@
+# Trio Milagre — alle søgemaskiner og AI-crawlere er velkomne
+User-agent: *
+Allow: /
+
+Sitemap: https://triomilagre.com/sitemap.xml
